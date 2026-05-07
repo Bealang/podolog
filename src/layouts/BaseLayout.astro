@@ -1,0 +1,52 @@
+---
+import Navbar from '../components/Navbar.astro';
+import MobileMenu from '../components/MobileMenu.astro';
+import Footer from '../components/Footer.astro';
+import StickyReserveButton from '../components/StickyReserveButton.astro';
+import '../index.css';
+
+interface Props {
+  title: string;
+  description: string;
+  bodyClass?: string;
+  noindex?: boolean;
+}
+
+const { title, description, bodyClass = '', noindex = true } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html class="light" lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  {noindex && <meta name="robots" content="noindex, nofollow" />}
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="icon" type="image/png" href="/images/logo_zdrowestopy.png" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+</head>
+<body class={`bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed ${bodyClass}`}>
+  <Navbar />
+  <MobileMenu />
+
+  <script src="../scripts/mobile-menu.js"></script>
+
+  <slot />
+
+  <Footer />
+
+  <script>
+    document.querySelectorAll('.current-year').forEach(el => el.textContent = new Date().getFullYear().toString());
+  </script>
+
+  <!-- ProAssist Widget -->
+  <script is:inline async src="//system.proassist.pl/widget/js/specialist/ps-u285-1f8iyq"></script>
+  <script src="../scripts/proassist.js"></script>
+  <script src="../scripts/animations.js"></script>
+
+  <StickyReserveButton />
+</body>
+</html>

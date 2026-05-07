@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Kontakt - Zdrowe Stopy"
+  description="Skontaktuj się z gabinetem podologicznym Zdrowe Stopy. Adres, telefon, godziny otwarcia i mapa."
+>
+  <main class="pt-32 pb-section-gap px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto min-h-screen">
+    <!-- Hero Title Section -->
+    <div class="mb-16 scroll-reveal">
+      <h1 class="font-headline-xl text-headline-xl text-primary mb-4">Kontakt</h1>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <!-- Contact Info & Hours -->
+      <div class="space-y-8">
+        <!-- Contact Info Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="scroll-reveal bg-white p-6 rounded-2xl border border-emerald-50 shadow-sm flex flex-col items-center text-center gap-3" style="transition-delay:0.05s">
+            <span class="material-symbols-outlined text-emerald-600 text-3xl">location_on</span>
+            <h3 class="font-label-md text-xs text-emerald-800 uppercase tracking-widest font-bold">Adres</h3>
+            <p class="font-body-md text-slate-600 text-sm">ul. Żeromskiego 10<br />32-400 Myślenice</p>
+          </div>
+          <div class="scroll-reveal bg-white p-6 rounded-2xl border border-emerald-50 shadow-sm flex flex-col items-center text-center gap-3" style="transition-delay:0.15s">
+            <span class="material-symbols-outlined text-emerald-600 text-3xl">call</span>
+            <h3 class="font-label-md text-xs text-emerald-800 uppercase tracking-widest font-bold">Telefon</h3>
+            <p class="font-body-md text-slate-600 text-sm">604 440 147</p>
+          </div>
+          <div class="scroll-reveal bg-white p-6 rounded-2xl border border-emerald-50 shadow-sm flex flex-col items-center text-center gap-3" style="transition-delay:0.25s">
+            <span class="material-symbols-outlined text-emerald-600 text-3xl">mail</span>
+            <h3 class="font-label-md text-xs text-emerald-800 uppercase tracking-widest font-bold">Email</h3>
+            <p class="font-body-md text-slate-600 text-sm">gabinet@<br class="hidden md:block" />podologiamyslenice.pl</p>
+          </div>
+        </div>
+        <!-- Opening Hours Card -->
+        <div class="scroll-reveal bg-white p-8 rounded-2xl border border-emerald-50 shadow-sm flex flex-col items-center text-center gap-6" style="transition-delay:0.1s">
+          <div class="flex flex-col items-center gap-3">
+            <span class="material-symbols-outlined text-emerald-600 text-3xl">schedule</span>
+            <h3 class="font-label-md text-xs text-emerald-800 uppercase tracking-widest font-bold">Godziny otwarcia</h3>
+          </div>
+          <div class="w-full space-y-4">
+            <div class="flex justify-between items-center pb-3 border-b border-emerald-50/50">
+              <span class="text-slate-500 text-sm font-medium">Poniedziałek — Piątek</span>
+              <span class="text-emerald-900 font-bold">08:30 - 17:00</span>
+            </div>
+            <div class="flex justify-between items-center pb-3 border-b border-emerald-50/50">
+              <span class="text-slate-500 text-sm font-medium">Sobota</span>
+              <span class="text-emerald-900 font-bold">08:00 - 13:00</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-slate-500 text-sm font-medium">Niedziela</span>
+              <span class="text-rose-500 font-bold italic uppercase tracking-wider text-sm">Zamknięte</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map Side -->
+      <div class="scroll-reveal relative rounded-[2.5rem] overflow-hidden ambient-shadow border border-white/40 h-[600px] lg:h-full min-h-[450px]" style="transition-delay:0.2s">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3511.625507490468!2d19.943196356149326!3d49.83588307522746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47166e9c3bf0d50d%3A0xb21d038e90f369fc!2sSpecjalistyczny%20Gabinet%20Podologiczny%20ZDROWE%20STOPY!5e1!3m2!1spl!2spl!4v1777474196434!5m2!1spl!2spl"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" class="w-full h-full">
+        </iframe>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

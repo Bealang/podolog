@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Oferta - Zdrowe Stopy"
+  description="Sprawdź pełną ofertę zabiegów podologicznych, pielęgnacji stóp i dłoni oraz dezynfekcji. Zadbaj o swoje zdrowie."
+  bodyClass="bg-slate-50/30"
+>
+  <main class="pt-32 pb-section-gap px-4 md:px-8 bg-slate-50/50 min-h-screen">
+    <!-- Header -->
+    <section class="max-w-7xl mx-auto mb-16 text-center">
+      <span class="inline-block py-1.5 px-4 rounded-full bg-white text-slate-600 font-label-sm mb-6 uppercase tracking-widest border border-slate-200 shadow-sm page-enter zoom-in">Nasze usługi</span>
+      <h1 class="text-headline-huge text-primary mb-4 tracking-tight page-enter fade-up">OFERTA ZABIEGÓW</h1>
+      <p class="font-body-lg text-slate-500 max-w-2xl mx-auto page-enter fade-up">Wybierz kategorię zabiegów, która Cię interesuje</p>
+    </section>
+
+    <!-- Services Menu Grid -->
+    <section class="max-w-5xl mx-auto pb-24">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+        <a href="/zabiegi" class="group aspect-[4/3] sm:aspect-square bg-white rounded-[2.5rem] border border-emerald-100/50 shadow-sm flex flex-col items-center justify-center p-8 transition-all hover:bg-emerald-50/30 page-enter fade-right">
+          <div class="w-20 h-20 rounded-3xl bg-emerald-50 flex items-center justify-center text-emerald-800 mb-6">
+            <span class="material-symbols-outlined text-5xl">footprint</span>
+          </div>
+          <h2 class="text-xl font-bold text-emerald-900 tracking-tight text-center">Podologia Stóp</h2>
+          <span class="text-[10px] text-emerald-600 uppercase tracking-[0.2em] font-bold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Zobacz cennik</span>
+        </a>
+        <a href="/podologia-dloni" class="group aspect-[4/3] sm:aspect-square bg-white rounded-[2.5rem] border border-emerald-100/50 shadow-sm flex flex-col items-center justify-center p-8 transition-all hover:bg-emerald-50/30 page-enter fade-up">
+          <div class="w-20 h-20 rounded-3xl bg-emerald-50 flex items-center justify-center text-emerald-800 mb-6">
+            <span class="material-symbols-outlined text-5xl">front_hand</span>
+          </div>
+          <h2 class="text-xl font-bold text-emerald-900 tracking-tight text-center">Podologia Dłoni</h2>
+          <span class="text-[10px] text-emerald-600 uppercase tracking-[0.2em] font-bold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Zobacz cennik</span>
+        </a>
+        <a href="/dezynfekcja" class="group aspect-[4/3] sm:aspect-square bg-white rounded-[2.5rem] border border-emerald-100/50 shadow-sm flex flex-col items-center justify-center p-8 transition-all hover:bg-emerald-50/30 page-enter fade-left">
+          <div class="w-20 h-20 rounded-3xl bg-emerald-50 flex items-center justify-center text-emerald-800 mb-6">
+            <span class="material-symbols-outlined text-5xl">microbiology</span>
+          </div>
+          <h2 class="text-xl font-bold text-emerald-900 tracking-tight text-center">Dezynfekcja Obuwia</h2>
+          <span class="text-[10px] text-emerald-600 uppercase tracking-[0.2em] font-bold mt-4 opacity-0 group-hover:opacity-100 transition-opacity">Zobacz cennik</span>
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

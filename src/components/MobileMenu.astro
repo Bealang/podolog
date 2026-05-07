@@ -1,0 +1,35 @@
+---
+const mobileLinks = [
+  { href: '/', label: 'Strona główna', icon: 'home' },
+  { href: '/o-mnie', label: 'O mnie', icon: 'person' },
+  { href: '/zabiegi', label: 'Podologia stóp', icon: 'footprint' },
+  { href: '/podologia-dloni', label: 'Podologia dłoni', icon: 'front_hand' },
+  { href: '/sterylizacja', label: 'Sterylizacja', icon: 'sanitizer' },
+  { href: '/dezynfekcja', label: 'Dezynfekcja', icon: 'microbiology' },
+  { href: '/galeria', label: 'Galeria', icon: 'photo_library' },
+  { href: '/kontakt', label: 'Kontakt', icon: 'call' },
+];
+---
+
+<div id="mobile-menu"
+  class="fixed inset-0 z-[200] bg-emerald-50 backdrop-blur-xl flex flex-col pointer-events-none opacity-0 transition-opacity duration-300">
+  <div class="flex justify-between items-center px-8 h-20 shrink-0 border-b border-emerald-100">
+    <a href="/" class="flex items-center gap-3 text-xl font-bold tracking-tighter text-emerald-900">
+      <img src="/images/logo_zdrowestopy.png" alt="Logo" class="h-10 w-10" width="40" height="40">
+      <span>Zdrowe Stopy</span>
+    </a>
+    <button id="mobile-menu-close" aria-label="Zamknij menu"
+      class="w-10 h-10 flex items-center justify-center rounded-lg text-emerald-900 hover:bg-emerald-100 transition-colors">
+      <span class="material-symbols-outlined text-[28px]">close</span>
+    </button>
+  </div>
+  <nav class="flex-1 flex flex-col justify-center px-8 gap-1 overflow-y-auto py-8">
+    {mobileLinks.map(link => (
+      <a href={link.href}
+        class="mobile-nav-link flex items-center gap-5 py-5 border-b border-emerald-100 group opacity-0 translate-y-5 transition-all duration-300">
+        <span class="material-symbols-outlined text-emerald-600 text-[24px]">{link.icon}</span>
+        <span class="text-emerald-900 text-2xl font-bold tracking-tight group-hover:text-emerald-600 transition-colors">{link.label}</span>
+      </a>
+    ))}
+  </nav>
+</div>

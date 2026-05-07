@@ -1,0 +1,254 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Podologia Stóp - Cennik - Zdrowe Stopy"
+  description="Sprawdź cennik zabiegów podologicznych: pielęgnacja stóp, terapia paznokci, korekcja wrastających paznokci, usuwanie brodawek."
+>
+  <main class="pt-32 pb-section-gap px-4 md:px-8 bg-slate-50/50 min-h-screen">
+    <!-- Header -->
+    <section class="max-w-7xl mx-auto mb-20 grid grid-cols-1 lg:grid-cols-3 items-center gap-12 text-center">
+      <div class="hidden lg:flex items-center justify-end">
+        <img src="/images/logo_zdrowestopy.png" alt="Logo Zdrowe Stopy" class="w-48 h-auto opacity-90">
+      </div>
+      <div class="flex flex-col items-center justify-center">
+        <h1 class="font-headline-xl text-3xl md:text-5xl lg:text-6xl text-primary mb-4 tracking-tight">PODOLOGIA STÓP</h1>
+        <p class="font-body-lg text-slate-500 max-w-xl mx-auto leading-relaxed">Kompleksowa diagnostyka, profilaktyka i specjalistyczne zabiegi przywracające komfort Twoim stopom.</p>
+      </div>
+      <div class="hidden lg:flex items-center justify-start">
+        <div class="w-64 h-64 overflow-hidden rounded-[2.5rem] shadow-xl border-4 border-white">
+          <img src="/images/podologia_stopy.jpg" alt="Podologia Stóp" class="w-full h-full object-cover">
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Container -->
+    <section class="max-w-5xl mx-auto space-y-16">
+
+      <!-- ZABIEGI PODSTAWOWE I PROFILAKTYKA -->
+      <div>
+        <div class="flex items-center gap-4 mb-8">
+          <div class="h-px bg-slate-300 flex-1"></div>
+          <h2 class="font-headline-md text-xl text-emerald-800 uppercase tracking-wide">Zabiegi podstawowe i profilaktyka</h2>
+          <div class="h-px bg-slate-300 flex-1"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 flex flex-col justify-between group cursor-default">
+            <div class="mb-6">
+              <h3 class="font-headline-md text-lg text-slate-800 mb-3 transition-colors">Podstawowy zabieg podologiczny</h3>
+              <p class="font-body-md text-slate-500 text-sm leading-relaxed">Usunięcie zrogowaceń i skórek, skrócenie oraz wyfrezowanie paznokci.</p>
+            </div>
+            <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
+              <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
+              <span class="font-headline-md text-emerald-700">od 180 PLN</span>
+            </div>
+          </div>
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 flex flex-col justify-between group cursor-default">
+            <div class="mb-6">
+              <h3 class="font-headline-md text-lg text-slate-800 mb-3 transition-colors">Badanie stopy cukrzycowej</h3>
+              <p class="font-body-md text-slate-500 text-sm leading-relaxed">Diagnostyka czucia oraz profesjonalna pielęgnacja stóp u diabetyków.</p>
+            </div>
+            <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
+              <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
+              <span class="font-headline-md text-emerald-700">od 150 PLN</span>
+            </div>
+          </div>
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 flex flex-col justify-between group cursor-default">
+            <div class="mb-6">
+              <h3 class="font-headline-md text-lg text-slate-800 mb-3 transition-colors">Odciążenia</h3>
+              <p class="font-body-md text-slate-500 text-sm leading-relaxed">Dobór i aplikacja materiałów chroniących bolesne miejsca przed uciskiem.</p>
+            </div>
+            <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
+              <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
+              <span class="font-headline-md text-emerald-700 text-base">Wycena indywidualna</span>
+            </div>
+          </div>
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 flex flex-col justify-between group cursor-default">
+            <div class="mb-6">
+              <h3 class="font-headline-md text-lg text-slate-800 mb-3 transition-colors">Ortozy indywidualne</h3>
+              <p class="font-body-md text-slate-500 text-sm leading-relaxed">Silikonowe elementy korygujące ustawienie palców i chroniące przed uciskiem.</p>
+            </div>
+            <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
+              <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
+              <span class="font-headline-md text-emerald-700 text-base">Wycena indywidualna</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TERAPIA PAZNOKCI ZMIENIONYCH CHOROBOWO -->
+      <div>
+        <div class="flex items-center gap-4 mb-8">
+          <div class="h-px bg-slate-300 flex-1"></div>
+          <h2 class="font-headline-md text-xl text-emerald-800 uppercase tracking-wide">Terapia paznokci zmienionych chorobowo</h2>
+          <div class="h-px bg-slate-300 flex-1"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 flex flex-col justify-between group cursor-default">
+            <div class="mb-6">
+              <h3 class="font-headline-md text-lg text-slate-800 mb-3 transition-colors">Obcięcie i oszlifowanie paznokci zmienionych chorobowo</h3>
+              <p class="font-body-md text-slate-500 text-sm leading-relaxed">Specjalistyczne opracowanie paznokci wymagających fachowej uwagi ze względu na toczące się procesy chorobowe.</p>
+            </div>
+            <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
+              <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
+              <span class="font-headline-md text-emerald-700">od 150 PLN</span>
+            </div>
+          </div>
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 flex flex-col justify-between group cursor-default">
+            <div class="mb-6">
+              <h3 class="font-headline-md text-lg text-slate-800 mb-3 transition-colors">Oczyszczenie paznokcia zmienionego chorobowo</h3>
+              <p class="font-body-md text-slate-500 text-sm leading-relaxed">Dokładne przygotowanie i oczyszczenie płytki dotkniętej zmianami patologicznymi.</p>
+            </div>
+            <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
+              <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
+              <span class="font-headline-md text-emerald-700">od 120 PLN</span>
+            </div>
+          </div>
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 flex flex-col justify-between group cursor-default">
+            <div class="mb-6">
+              <h3 class="font-headline-md text-lg text-slate-800 mb-3 transition-colors">Rekonstrukcja płytki paznokcia</h3>
+              <p class="font-body-md text-slate-500 text-sm leading-relaxed">Uzupełnienie brakującej części paznokcia specjalistyczną masą.</p>
+            </div>
+            <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
+              <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
+              <span class="font-headline-md text-emerald-700">od 120 PLN</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KOREKCJA PAZNOKCI I ZABIEGI SPECJALISTYCZNE -->
+      <div>
+        <div class="flex items-center gap-4 mb-8">
+          <div class="h-px bg-slate-300 flex-1"></div>
+          <h2 class="font-headline-md text-xl text-emerald-800 uppercase tracking-wide">Korekcja paznokci i zabiegi specjalistyczne</h2>
+          <div class="h-px bg-slate-300 flex-1"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 flex flex-col justify-between group cursor-default">
+            <div class="mb-6">
+              <h3 class="font-headline-md text-lg text-slate-800 mb-3 transition-colors">Wrastający paznokieć</h3>
+              <p class="font-body-md text-slate-500 text-sm leading-relaxed">Specjalistyczne wycięcie wrastającego elementu płytki.</p>
+            </div>
+            <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
+              <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
+              <span class="font-headline-md text-emerald-700">od 150 PLN</span>
+            </div>
+          </div>
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 flex flex-col justify-between group cursor-default">
+            <div class="mb-6">
+              <h3 class="font-headline-md text-lg text-slate-800 mb-3 transition-colors">Założenie klamry tytanowej</h3>
+              <p class="font-body-md text-slate-500 text-sm leading-relaxed">Nowoczesny system korygujący kształt paznokci wkręcających i wrastających.</p>
+            </div>
+            <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
+              <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
+              <span class="font-headline-md text-emerald-700">od 200 PLN</span>
+            </div>
+          </div>
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 flex flex-col justify-between group cursor-default">
+            <div class="mb-6">
+              <h3 class="font-headline-md text-lg text-slate-800 mb-3 transition-colors">Założenie klamry ortonyksyjnej (drutowej)</h3>
+              <p class="font-body-md text-slate-500 text-sm leading-relaxed">Skuteczna korekta toru wzrostu paznokcia i szybka eliminacja bólu.</p>
+            </div>
+            <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
+              <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
+              <span class="font-headline-md text-emerald-700">od 200 PLN</span>
+            </div>
+          </div>
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 flex flex-col justify-between group cursor-default">
+            <div class="mb-6">
+              <h3 class="font-headline-md text-lg text-slate-800 mb-3 transition-colors">Kontrola klamry</h3>
+              <p class="font-body-md text-slate-500 text-sm leading-relaxed">Sprawdzenie postępów terapii oraz ewentualna korekta naciągu klamry.</p>
+            </div>
+            <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
+              <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
+              <span class="font-headline-md text-emerald-700">od 100 PLN</span>
+            </div>
+          </div>
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 flex flex-col justify-between group cursor-default">
+            <div class="mb-6">
+              <h3 class="font-headline-md text-lg text-slate-800 mb-3 transition-colors">Kontrola z przestawieniem klamry</h3>
+              <p class="font-body-md text-slate-500 text-sm leading-relaxed">Zdjęcie klamry i ponowna aplikacja w nowym miejscu.</p>
+            </div>
+            <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
+              <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
+              <span class="font-headline-md text-emerald-700">od 150 PLN</span>
+            </div>
+          </div>
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 flex flex-col justify-between group cursor-default">
+            <div class="mb-6">
+              <h3 class="font-headline-md text-lg text-slate-800 mb-3 transition-colors">Usuwanie krwiaka podpaznokciowego</h3>
+              <p class="font-body-md text-slate-500 text-sm leading-relaxed">Szybka pomoc w przypadku urazu mechanicznego pod paznokciem.</p>
+            </div>
+            <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
+              <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
+              <span class="font-headline-md text-emerald-700">od 150 PLN</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TERAPIA ZMIAN SKÓRNYCH -->
+      <div>
+        <div class="flex items-center gap-4 mb-8">
+          <div class="h-px bg-slate-300 flex-1"></div>
+          <h2 class="font-headline-md text-xl text-emerald-800 uppercase tracking-wide">Terapia zmian skórnych</h2>
+          <div class="h-px bg-slate-300 flex-1"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 flex flex-col justify-between group cursor-default">
+            <div class="mb-6">
+              <h3 class="font-headline-md text-lg text-slate-800 mb-3 transition-colors">Usunięcie brodawki wirusowej (kurzajki)</h3>
+              <p class="font-body-md text-slate-500 text-sm leading-relaxed">Specjalistyczne opracowanie zmiany i aplikacja środków przyżegających.</p>
+            </div>
+            <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
+              <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
+              <span class="font-headline-md text-emerald-700">od 120 PLN</span>
+            </div>
+          </div>
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 flex flex-col justify-between group cursor-default">
+            <div class="mb-6">
+              <h3 class="font-headline-md text-lg text-slate-800 mb-3 transition-colors">Usuwanie odcisków</h3>
+              <p class="font-body-md text-slate-500 text-sm leading-relaxed">Bezbolesne usunięcie bolesnego „rdzenia" powodującego punktowy ból.</p>
+            </div>
+            <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
+              <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
+              <span class="font-headline-md text-emerald-700">od 120 PLN</span>
+            </div>
+          </div>
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 flex flex-col justify-between group cursor-default">
+            <div class="mb-6">
+              <h3 class="font-headline-md text-lg text-slate-800 mb-3 transition-colors">Usuwanie modzeli</h3>
+              <p class="font-body-md text-slate-500 text-sm leading-relaxed">Pozbycie się rozległych, żółtawych zgrubień naskórka.</p>
+            </div>
+            <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
+              <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
+              <span class="font-headline-md text-emerald-700">od 120 PLN</span>
+            </div>
+          </div>
+          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm transition-all duration-300 flex flex-col justify-between group cursor-default">
+            <div class="mb-6">
+              <h3 class="font-headline-md text-lg text-slate-800 mb-3 transition-colors">Opracowanie pękających pięt / rozpadlin</h3>
+              <p class="font-body-md text-slate-500 text-sm leading-relaxed">Redukcja zrogowaceń i przywrócenie elastyczności skórze.</p>
+            </div>
+            <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
+              <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
+              <span class="font-headline-md text-emerald-700">od 150 PLN</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NOTE -->
+      <div class="bg-white border-l-4 border-emerald-500 shadow-sm rounded-r-xl p-6 mt-12">
+        <p class="font-body-md text-slate-600 text-sm italic leading-relaxed">
+          <span class="font-bold text-slate-800">* Uwaga:</span> Cena niektórych zabiegów jest ustalana indywidualnie i zależy od czasu pracy oraz ilości wykorzystanych preparatów.
+        </p>
+      </div>
+
+    </section>
+  </main>
+
+  <script is:inline src="/treatments-modal.js"></script>
+</BaseLayout>

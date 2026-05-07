@@ -1,0 +1,309 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+html,
+body {
+    font-family: 'Manrope', 'Inter', sans-serif;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+}
+
+.font-body-md { font-weight: 500; }
+.font-body-lg { font-weight: 500; }
+.font-headline-md { font-weight: 600; }
+.font-headline-lg { font-weight: 600; }
+.font-headline-xl { font-weight: 700; }
+.font-label-md { font-weight: 700; }
+.font-label-sm { font-weight: 600; }
+
+body *:not(.material-symbols-outlined):not(.material-symbols-rounded):not(.material-symbols-sharp) {
+    font-family: inherit;
+}
+
+.glass-surface {
+    background: rgba(232, 242, 240, 0.7);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.ambient-shadow {
+    box-shadow: 0 20px 30px -10px rgba(75, 99, 90, 0.08);
+}
+
+.text-glow {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.nav-dropdown {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.group:hover .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* ── Nav link hover: subtle lift ── */
+.nav-desktop>a,
+.nav-desktop>div>a {
+    transition: color 0.22s ease, transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nav-desktop>a:hover,
+.nav-desktop>div>a:hover {
+    transform: translateY(-2px);
+}
+
+/* ── Hero secondary button hover ── */
+.hero-btn-secondary {
+    transition: background 0.22s ease, transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.22s ease;
+}
+
+.hero-btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -6px rgba(16, 185, 129, 0.18);
+}
+
+/* ── CTA Reserve button – lift + shimmer ── */
+.btn-reserve {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.25s ease;
+}
+
+.btn-reserve::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.18) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+    pointer-events: none;
+}
+
+.btn-reserve:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 16px 36px -8px rgba(16, 185, 129, 0.35);
+}
+
+.btn-reserve:hover::after {
+    transform: translateX(100%);
+}
+
+.btn-reserve:active {
+    transform: translateY(0) scale(0.97);
+    box-shadow: 0 4px 12px -4px rgba(16, 185, 129, 0.2);
+}
+
+/* Custom Navigation Breakpoint: 880px */
+@media (max-width: 880px) {
+    .nav-desktop {
+        display: none !important;
+    }
+
+    .nav-mobile-toggle {
+        display: flex !important;
+    }
+}
+
+@media (min-width: 881px) {
+    .nav-desktop {
+        display: flex !important;
+    }
+
+    .nav-mobile-toggle {
+        display: none !important;
+    }
+
+    /* ── Navbar 3-column layout: links always centered ── */
+    nav>div.max-w-7xl {
+        display: grid !important;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+    }
+
+    /* Right-side actions: logo-width counterbalance, align to right */
+    nav>div.max-w-7xl>div:last-child {
+        display: flex !important;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    /* Nav desktop links container: center within its grid cell */
+    nav>div.max-w-7xl>.nav-desktop {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* Hero dual layout: desktop vs mobile */
+.hero-desktop {
+    display: flex;
+}
+.hero-mobile {
+    display: none;
+}
+
+@media (max-width: 880px) {
+    .hero-desktop {
+        display: none !important;
+    }
+    .hero-mobile {
+        display: flex !important;
+        min-height: 100vh;
+    }
+}
+
+/* Custom Navbar Button Rounding – specific to buttons, not all nav items */
+.btn-reserve {
+    border-radius: 8px;
+}
+
+/* ── Dynamic navbar: transparent by default, solid when scrolled ── */
+/* Override Tailwind bg/blur/shadow classes immediately in CSS,       */
+/* so there is NO flash of background on page load/navigation.        */
+nav.fixed {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    border-bottom-color: transparent !important;
+    transition:
+        background 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+        backdrop-filter 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+        -webkit-backdrop-filter 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+nav.fixed.nav--scrolled {
+    background: rgba(236, 253, 245, 0.75) !important;
+    backdrop-filter: blur(20px) saturate(1.8) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(1.8) !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* ── Nav link contrast: dark & fully opaque on transparent navbar ── */
+/* When scrolled to top the bg is removed – links need higher contrast */
+nav.fixed:not(.nav--scrolled) .nav-desktop > a,
+nav.fixed:not(.nav--scrolled) .nav-desktop > div > a,
+nav.fixed:not(.nav--scrolled) > div > a {
+    color: #0d2b23 !important;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.4);
+}
+
+/* Hamburger bars also need better contrast on transparent bg */
+nav.fixed:not(.nav--scrolled) .hamburger-bar {
+    background-color: #0d2b23 !important;
+}
+
+/* ── Hide ProAssist side handle button ("REJESTRACJA") ── */
+/* The widget injects a floating side button — we hide it visually */
+#proassistHandle-new,
+.proassist--handle-new,
+[id^="proassistHandle"],
+[class*="proassist--handle"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   SCROLL-REVEAL ANIMATIONS
+   Elements start invisible + shifted, transition to visible on scroll
+   ══════════════════════════════════════════════════════════════════ */
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition:
+        opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+/* Specific reveal types */
+.fade-up { transform: translateY(60px); }
+.fade-right { transform: translateX(-60px); }
+.fade-left { transform: translateX(60px); }
+.zoom-in { transform: scale(0.9); }
+.line-grow { 
+    transform: scaleX(0); 
+    transform-origin: left;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal--visible {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+.scroll-reveal--visible.line-grow {
+    transform: scaleX(1) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   PAGE LOAD ENTRANCE
+   Smooth staggered entrance for above-the-fold content
+   ══════════════════════════════════════════════════════════════════ */
+
+@keyframes pageEnter {
+    0% { opacity: 0; transform: translateY(40px) scale(0.96); }
+    100% { opacity: 1; transform: none; }
+}
+@keyframes pageEnterRight {
+    0% { opacity: 0; transform: translateX(-60px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes pageEnterLeft {
+    0% { opacity: 0; transform: translateX(60px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+@keyframes pageEnterZoom {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.page-enter { 
+    animation: pageEnter 0.9s cubic-bezier(0.16, 1, 0.3, 1) both !important; 
+}
+.page-enter.fade-right { animation-name: pageEnterRight !important; }
+.page-enter.fade-left { animation-name: pageEnterLeft !important; }
+.page-enter.zoom-in { animation-name: pageEnterZoom !important; }
+
+/* ══════════════════════════════════════════════════════════════════
+   ACCESSIBILITY: Respect reduced motion preference
+   ══════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .page-enter {
+        animation: none !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Menu Oferta Specific */
+.text-headline-huge {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    line-height: 1.1;
+    font-weight: 800;
+}

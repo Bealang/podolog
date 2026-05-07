@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Galeria - Zdrowe Stopy"
+  description="Zobacz naszą galerię zdjęć z gabinetu podologicznego Zdrowe Stopy. Profesjonalne zabiegi, nowoczesny sprzęt i metamorfozy pacjentów."
+>
+  <main class="pt-32 pb-section-gap min-h-screen">
+    <section class="max-w-7xl mx-auto px-8 mb-12">
+      <div class="mb-12">
+        <h1 class="font-headline-lg text-primary text-4xl md:text-5xl scroll-reveal fade-right">Galeria zdjęć</h1>
+        <div class="h-1 w-32 bg-primary-fixed mt-4 rounded-full scroll-reveal line-grow"></div>
+        <p class="text-on-surface-variant font-body-lg leading-relaxed mt-6 max-w-2xl scroll-reveal fade-up">
+          Zapraszamy do obejrzenia naszej galerii zdjęć, w której mogą Państwo zobaczyć efekty naszej pracy oraz wyposażenie gabinetu.
+        </p>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 scroll-reveal fade-up">
+        <!-- Dynamically populated -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal for Fullscreen Images -->
+  <div id="image-modal" class="fixed inset-0 z-[300] bg-black/90 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+    <button id="modal-close" class="absolute top-6 right-6 text-white bg-black/50 hover:bg-black p-2 rounded-full transition-colors z-[310]">
+      <span class="material-symbols-outlined text-[32px]">close</span>
+    </button>
+    <img id="modal-img" src="" alt="Powiększone zdjęcie" class="max-w-[90vw] max-h-[90vh] object-contain rounded-xl shadow-2xl scale-95 transition-transform duration-300">
+  </div>
+
+  <script is:inline>
+    function renderGallery(imageUrls) {
+      const galleryGrid = document.getElementById('gallery-grid');
+      if (!galleryGrid) return;
+      galleryGrid.innerHTML = '';
+      const imageModal = document.getElementById('image-modal');
+      const modalImg = document.getElementById('modal-img');
+
+      imageUrls.forEach((imgUrl, index) => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'relative group aspect-square overflow-hidden rounded-2xl shadow-sm cursor-pointer border border-emerald-50/20 scroll-reveal fade-up';
+        const imgElement = document.createElement('img');
+        imgElement.src = imgUrl;
+        imgElement.loading = 'lazy';
+        imgElement.alt = 'Zdjęcie w galerii';
+        imgElement.className = 'w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:rotate-1';
+        const overlay = document.createElement('div');
+        overlay.className = 'absolute inset-0 bg-emerald-900/0 group-hover:bg-emerald-900/20 transition-colors duration-300 flex items-center justify-center';
+        const icon = document.createElement('span');
+        icon.className = 'material-symbols-outlined text-white opacity-0 group-hover:opacity-100 transform scale-50 group-hover:scale-100 transition-all duration-300 text-4xl';
+        icon.textContent = 'zoom_in';
+        overlay.appendChild(icon);
+        wrapper.appendChild(imgElement);
+        wrapper.appendChild(overlay);
+        wrapper.addEventListener('click', () => {
+          modalImg.src = imgUrl;
+          imageModal.classList.remove('opacity-0', 'pointer-events-none');
+          setTimeout(() => { modalImg.classList.remove('scale-95'); }, 50);
+        });
+        galleryGrid.appendChild(wrapper);
+        setTimeout(() => { wrapper.classList.add('scroll-reveal--visible'); }, 100 + (index * 100));
+      });
+    }
+
+    async function initGallery() {
+      const images = [];
+      let i = 1;
+      const maxImages = 100;
+      const extensions = ['webp', 'png', 'jpg', 'jpeg', 'JPG', 'PNG'];
+      while (i <= maxImages) {
+        let found = false;
+        for (const ext of extensions) {
+          const url = `/images/galeria/${i}.${ext}`;
+          try {
+            const response = await fetch(url, { method: 'HEAD' });
+            const contentType = response.headers.get('content-type');
+            if (response.ok && contentType && contentType.startsWith('image/')) {
+              images.push(url);
+              found = true;
+              break;
+            }
+          } catch (e) { /* skip */ }
+        }
+        if (!found) break;
+        i++;
+      }
+      if (images.length > 0) {
+        renderGallery(images);
+      } else {
+        renderGallery(['/images/galeria/1.webp', '/images/galeria/2.webp', '/images/galeria/3.webp', '/images/galeria/4.webp', '/images/galeria/5.webp']);
+      }
+    }
+
+    initGallery();
+
+    const imageModal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    const modalClose = document.getElementById('modal-close');
+    const closeModal = () => {
+      imageModal.classList.add('opacity-0', 'pointer-events-none');
+      modalImg.classList.add('scale-95');
+    };
+    modalClose.addEventListener('click', closeModal);
+    imageModal.addEventListener('click', (e) => { if (e.target === imageModal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+  </script>
+</BaseLayout>

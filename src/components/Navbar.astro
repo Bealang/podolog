@@ -1,0 +1,102 @@
+---
+interface Props {
+  currentPath?: string;
+}
+const { currentPath = Astro.url.pathname } = Astro.props;
+
+const navLinks = [
+  { href: '/', label: 'Strona główna' },
+  { href: '/o-mnie', label: 'O mnie' },
+];
+
+const ofertaDropdown = [
+  { href: '/zabiegi', label: 'Podologia stóp', sub: 'Cennik główny', icon: 'footprint' },
+  { href: '/podologia-dloni', label: 'Podologia dłoni', sub: 'Terapia i pielęgnacja', icon: 'front_hand' },
+  { href: '/dezynfekcja', label: 'Dezynfekcja', sub: 'Ozonowanie obuwia', icon: 'microbiology' },
+];
+
+const afterOferta = [
+  { href: '/galeria', label: 'Galeria' },
+  { href: '/sterylizacja', label: 'Sterylizacja' },
+  { href: '/kontakt', label: 'Kontakt' },
+];
+
+function isActive(href: string): boolean {
+  if (href === '/') return currentPath === '/' || currentPath === '/index.html';
+  return currentPath.startsWith(href);
+}
+
+function isOfertaActive(): boolean {
+  return ['/zabiegi', '/podologia-dloni', '/dezynfekcja', '/oferta'].some(p => currentPath.startsWith(p));
+}
+
+function linkClass(href: string): string {
+  return isActive(href)
+    ? 'font-sans tracking-tight text-sm font-medium text-emerald-900 border-b-2 border-emerald-700 pb-1'
+    : 'font-sans tracking-tight text-sm font-medium text-emerald-700/80 hover:text-emerald-900 transition-colors';
+}
+---
+
+<nav class="fixed top-0 w-full z-[100] border-b border-white/40 bg-emerald-50/70 backdrop-blur-xl shadow-sm shrink-0">
+  <div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
+    <a href="/"
+      class="flex items-center gap-3 text-xl tracking-tighter text-emerald-900 hover:opacity-80 transition-opacity">
+      <img src="/images/logo_zdrowestopy.png" alt="Logo" class="h-10 w-10" width="40" height="40">
+      <span class="font-bold">Zdrowe Stopy</span>
+    </a>
+
+    <!-- Center Column: Desktop Links -->
+    <div class="flex items-center justify-center">
+      <div class="nav-desktop items-center gap-8">
+        {navLinks.map(link => (
+          <a class={linkClass(link.href)} href={link.href}>{link.label}</a>
+        ))}
+        <div class="relative group h-full flex items-center">
+          <a href="/oferta"
+            class={`font-sans tracking-tight text-sm font-medium ${isOfertaActive() ? 'text-emerald-900 border-b-2 border-emerald-700 pb-1' : 'text-emerald-700/80 hover:text-emerald-900 transition-colors'} flex items-center gap-1`}>
+            Oferta
+            <span class="material-symbols-outlined text-[16px] group-hover:rotate-180 transition-transform">expand_more</span>
+          </a>
+          <div class="nav-dropdown absolute top-full left-0 w-64 pt-2 z-50">
+            <div class="bg-white/95 backdrop-blur-2xl border border-emerald-50 rounded-2xl shadow-2xl p-3 flex flex-col gap-1 text-left">
+              {ofertaDropdown.map(item => (
+                <a href={item.href}
+                  class="flex items-center gap-3 p-3 rounded-xl hover:bg-emerald-50/50 text-slate-700 hover:text-emerald-900 transition-all group/item">
+                  <div class="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-900">
+                    <span class="material-symbols-outlined text-[18px]">{item.icon}</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <span class="text-sm font-semibold leading-tight">{item.label}</span>
+                    <span class="text-[10px] text-emerald-800/60 uppercase tracking-wider font-bold">{item.sub}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+        {afterOferta.map(link => (
+          <a class={linkClass(link.href)} href={link.href}>{link.label}</a>
+        ))}
+      </div>
+    </div>
+
+    <div class="flex items-center justify-end gap-3">
+      <a href="https://www.facebook.com/profile.php?id=100063686793552" target="_blank" rel="noopener noreferrer"
+        aria-label="Facebook"
+        class="text-emerald-900 hover:text-emerald-700 hover:scale-110 transition-all flex items-center justify-center p-2 rounded-full hover:bg-emerald-100">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M13.397,20.997v-8.196h2.765l0.411-3.209h-3.176V7.548c0-0.926,0.258-1.56,1.587-1.56h1.684V3.127 C15.849,3.039,15.025,2.997,14.201,3c-2.444,0-4.122,1.492-4.122,4.231v2.355H7.332v3.209h2.753v8.202H13.397z"/>
+        </svg>
+      </a>
+      <button onclick="openProassist()"
+        class="nav-desktop btn-reserve bg-primary text-on-primary px-6 py-2.5 rounded-md font-label-md cursor-pointer">Zarezerwuj wizytę</button>
+      <!-- Hamburger Button -->
+      <button id="mobile-menu-btn" aria-label="Otwórz menu" aria-expanded="false"
+        class="nav-mobile-toggle flex flex-col justify-center items-center w-10 h-10 gap-[5px] rounded-lg hover:bg-emerald-100 transition-colors">
+        <span class="hamburger-bar block w-6 h-0.5 bg-emerald-900 rounded-full transition-all duration-300 origin-center"></span>
+        <span class="hamburger-bar block w-6 h-0.5 bg-emerald-900 rounded-full transition-all duration-300"></span>
+        <span class="hamburger-bar block w-6 h-0.5 bg-emerald-900 rounded-full transition-all duration-300 origin-center"></span>
+      </button>
+    </div>
+  </div>
+</nav>

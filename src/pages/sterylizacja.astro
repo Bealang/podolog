@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Sterylizacja Narzędzi - Zdrowe Stopy"
+  description="Dbamy o Twoje bezpieczeństwo. Pełna sterylizacja w autoklawie i rygorystyczne standardy higieny."
+  bodyClass="antialiased overflow-x-hidden"
+>
+  <main class="pt-20 min-h-screen">
+    <!-- Hero/Main Statement -->
+    <section class="relative py-24 px-8 overflow-hidden bg-slate-50">
+      <div class="max-w-6xl mx-auto relative">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center text-left">
+          <div class="flex flex-col items-start gap-8">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-700 font-label-sm uppercase tracking-wider">
+              <span class="material-symbols-outlined text-[18px]">verified_user</span>
+              Najwyższe Standardy Higieny
+            </div>
+            <h1 class="font-headline-xl text-3xl md:text-5xl lg:text-6xl text-emerald-900 leading-tight">Dla Państwa bezpieczeństwa i&nbsp;zdrowia</h1>
+            <p class="font-body-lg text-slate-600 text-xl leading-relaxed">
+              Gabinet wyposażony jest w najwyższej klasy <span class="text-emerald-800 font-semibold underline decoration-emerald-300 underline-offset-4">autoklaw medyczny klasy B firmy YESON</span>.
+            </p>
+          </div>
+          <div class="relative group">
+            <div class="absolute inset-0 bg-emerald-200 blur-3xl rounded-full opacity-20 scale-90"></div>
+            <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white">
+              <img src="/images/autoklaw.png" alt="Autoklaw YESON" class="w-full h-auto">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Materials & Tools -->
+    <section class="py-20 px-8 bg-white">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 shadow-sm">
+            <div class="flex flex-col gap-6">
+              <div class="w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-600">
+                <span class="material-symbols-outlined text-3xl">medical_services</span>
+              </div>
+              <h2 class="font-headline-md text-2xl text-emerald-900">Materiały jednorazowe</h2>
+              <p class="text-slate-600 text-lg leading-relaxed">
+                Podczas zabiegów korzystam z <span class="font-semibold text-emerald-900">materiałów i narzędzi jednorazowych</span>, takich jak: rękawiczki, kapki ścierające, dłutka, skalpele itp.
+              </p>
+            </div>
+          </div>
+          <div class="p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 shadow-sm">
+            <div class="flex flex-col gap-6">
+              <div class="w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center text-emerald-600">
+                <span class="material-symbols-outlined text-3xl">clean_hands</span>
+              </div>
+              <h2 class="font-headline-md text-2xl text-emerald-900">Narzędzia wielokrotnego użytku</h2>
+              <p class="text-slate-600 text-lg leading-relaxed">
+                W przypadku <span class="font-semibold text-emerald-900">narzędzi użytku wielokrotnego</span> (cążki, nożyczki, pincety, sondy, frezy itp.) wszystko początkowo <span class="font-semibold text-emerald-900">dezynfekuję w myjce ultradźwiękowej</span>, a następnie <span class="font-semibold text-emerald-900">sterylizuję w autoklawie</span>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why it matters -->
+    <section class="py-32 px-8 bg-slate-50 relative overflow-hidden border-t border-emerald-100/50">
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          <div class="lg:col-span-5 space-y-8">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 font-bold text-[10px] uppercase tracking-[0.2em]">
+              <span class="material-symbols-outlined text-[14px]">health_and_safety</span>
+              Standardy Medyczne
+            </div>
+            <h2 class="text-4xl md:text-5xl font-bold text-emerald-900 leading-[1.1] tracking-tight">
+              Dlaczego sterylizacja w&nbsp;autoklawie jest kluczowa?
+            </h2>
+            <p class="text-slate-600 text-lg leading-relaxed max-w-md">
+              Wielu pacjentów nie zdaje sobie sprawy, że sama dezynfekcja nie wystarczy. Prawdziwe bezpieczeństwo zaczyna się tam, gdzie kończą się półśrodki.
+            </p>
+          </div>
+          <div class="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-emerald-100/50 flex flex-col">
+              <h3 class="text-xl font-bold text-emerald-900 mb-4">Gwarancja Czystości</h3>
+              <p class="text-slate-500 text-sm leading-relaxed flex-1">Sterylizacja to jedyny proces, który zabija wszystkie formy życia drobnoustrojów, w tym przetrwalniki bakterii.</p>
+            </div>
+            <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-emerald-100/50 flex flex-col">
+              <h3 class="text-xl font-bold text-emerald-900 mb-4">Ochrona przed Wirusami</h3>
+              <p class="text-slate-500 text-sm leading-relaxed flex-1">Skutecznie chroni przed groźnymi patogenami takimi jak HIV, WZW typu B i C oraz wszelkimi odmianami grzybicy.</p>
+            </div>
+            <div class="bg-white p-10 rounded-[2.5rem] shadow-sm border border-emerald-100/50 md:col-span-2">
+              <h3 class="text-xl font-bold text-emerald-900 mb-4">Protokół Bezpieczeństwa</h3>
+              <p class="text-slate-500 text-sm leading-relaxed">Każdy zestaw narzędzi przechodzi przez dezynfekcję w myjce ultradźwiękowej, a następnie jest pakowany w jednorazowe pakiety i sterylizowany w temperaturze 134°C.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
