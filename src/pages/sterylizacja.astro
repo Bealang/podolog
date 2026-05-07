@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import autoklawImage from '../assets/images/autoklaw.png';
 ---
 
 <BaseLayout
@@ -25,7 +27,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="relative group">
             <div class="absolute inset-0 bg-emerald-200 blur-3xl rounded-full opacity-20 scale-90"></div>
             <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white">
-              <img src="/images/autoklaw.png" alt="Autoklaw YESON" class="w-full h-auto">
+              <Image src={autoklawImage} alt="Autoklaw YESON" class="w-full h-auto" />
             </div>
           </div>
         </div>

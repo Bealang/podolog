@@ -77,19 +77,19 @@
         if (el.tagName === 'H1' || el.tagName === 'H2') {
             return el.classList.contains('text-center') ? 'fade-up' : 'fade-right';
         }
-        
+
         // Images get zoom-in
         if (el.tagName === 'IMG' || el.classList.contains('status-badge')) return 'zoom-in';
-        
+
         // Sections get fade-up
         if (el.tagName === 'SECTION') return 'fade-up';
-        
+
         // Grid cards alternate sides for visual interest
         if (el.parentElement && (el.parentElement.classList.contains('grid') || el.classList.contains('glass-surface'))) {
             if (elCenter < viewportCenter - 50) return 'fade-right';
             if (elCenter > viewportCenter + 50) return 'fade-left';
         }
-        
+
         return 'fade-up';
     }
 
@@ -169,7 +169,7 @@
             const scrollY = window.scrollY || window.pageYOffset;
             const windowHeight = window.innerHeight;
             const documentHeight = document.documentElement.scrollHeight;
-            
+
             // Hide when close to bottom (footer area)
             if (scrollY + windowHeight >= documentHeight - 120) {
                 stickyBtn.classList.add('translate-y-full', 'opacity-0');

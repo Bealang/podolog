@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import backgroundImage from '../assets/images/background.jpg';
+import logoImage from '../assets/images/logo_zdrowestopy.png';
 ---
 
 <BaseLayout
@@ -12,7 +15,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <!-- ═══════ DESKTOP HERO (visible > 880px) ═══════ -->
       <div class="hero-desktop relative min-h-screen flex items-center pt-24 pb-12 w-full">
-        <div class="absolute inset-0 z-0" style="background-image: url('/images/background.jpg'); background-size: cover; background-position: 95% center; background-attachment: fixed;">
+        <div class="absolute inset-0 z-0">
+          <Image 
+            src={backgroundImage} 
+            alt="" 
+            fetchpriority="high" 
+            loading="eager" 
+            class="w-full h-full object-cover object-[95%_center]"
+            widths={[240, 540, 720, backgroundImage.width]}
+            sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${backgroundImage.width}px`}
+            quality="mid"
+          />
           <div class="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent">
           </div>
         </div>
@@ -37,8 +50,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                           17:00</span>
                       </div>
                     </div>
-                    <img src="/images/logo_zdrowestopy.png" alt="Zdrowe Stopy Logo"
-                      class="h-28 md:h-32 w-auto page-enter zoom-in">
+                    <Image 
+                      src={logoImage} 
+                      alt="Zdrowe Stopy Logo"
+                      class="h-28 md:h-32 w-auto page-enter zoom-in"
+                      loading="eager"
+                      fetchpriority="high"
+                    />
                   </div>
                   <h1 class="font-serif text-3xl md:text-5xl lg:text-6xl text-primary mb-0 leading-[1.1] tracking-tight page-enter fade-right"
                     style="font-family: 'Playfair Display', serif;">Twoje stopy w rękach
@@ -66,17 +84,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
 
       <!-- ═══════ MOBILE HERO (visible ≤ 880px) ═══════ -->
-      <div class="hero-mobile pt-32 pb-12 px-6 flex-col items-center gap-7 text-center relative"
-        style="background-image: url('/images/background.jpg'); background-size: cover; background-position: top center; background-attachment: fixed;">
-        <div class="absolute inset-0"
+      <div class="hero-mobile pt-32 pb-12 px-6 flex-col items-center gap-7 text-center relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <Image 
+            src={backgroundImage} 
+            alt="" 
+            fetchpriority="high" 
+            loading="eager" 
+            class="w-full h-full object-cover object-center"
+            widths={[240, 540, 720]}
+            sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, 720px`}
+            quality="mid"
+          />
+        </div>
+        <div class="absolute inset-0 z-1"
           style="background: linear-gradient(to bottom, rgba(240,250,245,0.60) 0%, rgba(240,250,245,0.40) 60%, rgba(209,235,220,0.65) 100%);">
         </div>
         <!-- content wrapper above overlay -->
         <div class="relative z-10 flex flex-col items-center gap-7 w-full flex-1">
 
           <!-- 1. Duże logo (krzyż) -->
-          <img src="/images/logo_zdrowestopy.png" alt="Zdrowe Stopy Logo"
-            class="h-36 w-auto drop-shadow-md page-enter zoom-in">
+          <Image 
+            src={logoImage} 
+            alt="Zdrowe Stopy Logo"
+            class="h-36 w-auto drop-shadow-md page-enter zoom-in"
+            loading="eager"
+            fetchpriority="high"
+          />
 
           <!-- 2. Status Otwarcia -->
           <div

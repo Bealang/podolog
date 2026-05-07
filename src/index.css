@@ -2,7 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+html {
+    scrollbar-gutter: stable;
+    overflow-x: hidden;
+}
 
 html,
 body {
@@ -10,7 +13,8 @@ body {
     font-weight: 500;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: clip;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .font-body-md { font-weight: 500; }

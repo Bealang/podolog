@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logoImage from '../assets/images/logo_zdrowestopy.png';
+
 interface Props {
   currentPath?: string;
 }
@@ -41,7 +44,7 @@ function linkClass(href: string): string {
   <div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
     <a href="/"
       class="flex items-center gap-3 text-xl tracking-tighter text-emerald-900 hover:opacity-80 transition-opacity">
-      <img src="/images/logo_zdrowestopy.png" alt="Logo" class="h-10 w-10" width="40" height="40">
+      <Image src={logoImage} alt="Logo" class="h-10 w-10" width={40} height={40} />
       <span class="font-bold">Zdrowe Stopy</span>
     </a>
 

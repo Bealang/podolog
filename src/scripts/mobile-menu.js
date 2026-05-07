@@ -8,8 +8,8 @@
     const links = menu.querySelectorAll('.mobile-nav-link');
 
     function openMenu() {
-        menu.classList.remove('pointer-events-none', 'opacity-0');
-        menu.classList.add('pointer-events-auto', 'opacity-100');
+        menu.classList.remove('pointer-events-none', 'opacity-0', 'invisible');
+        menu.classList.add('pointer-events-auto', 'opacity-100', 'visible');
         document.body.style.overflow = 'hidden';
         btn.setAttribute('aria-expanded', 'true');
         if (bars.length >= 3) {
@@ -26,8 +26,8 @@
     }
 
     function closeMenu() {
-        menu.classList.remove('pointer-events-auto', 'opacity-100');
-        menu.classList.add('pointer-events-none', 'opacity-0');
+        menu.classList.remove('pointer-events-auto', 'opacity-100', 'visible');
+        menu.classList.add('pointer-events-none', 'opacity-0', 'invisible');
         document.body.style.overflow = '';
         btn.setAttribute('aria-expanded', 'false');
         if (bars.length >= 3) {

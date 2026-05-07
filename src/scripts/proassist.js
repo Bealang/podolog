@@ -1,7 +1,3 @@
-window.proassistData = window.proassistData || [];
-function proassist(k, v) { proassistData[k] = v; }
-proassist('title', 'REJESTRACJA');
-
 window.openProassist = function openProassist() {
     // Close mobile menu first if open
     var mobileMenu = document.getElementById('mobile-menu');

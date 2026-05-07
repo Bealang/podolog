@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import personImage from '../assets/images/zdjecie_osoba.png';
 ---
 
 <BaseLayout
@@ -12,9 +14,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
         <div class="md:col-span-5 flex justify-center md:justify-start relative group">
           <div class="absolute -inset-4 bg-primary-fixed rounded-xl -z-10 opacity-30 blur-2xl group-hover:opacity-50 transition-opacity"></div>
-          <img alt="Podologist Portrait"
+          <Image 
+            src={personImage}
+            alt="Podologist Portrait"
+            width={600}
+            height={750}
+            quality="mid"
             class="w-full max-w-sm aspect-[4/5] object-cover rounded-xl ambient-shadow"
-            src="/images/zdjecie_osoba.png" />
+          />
           <div class="absolute bottom-6 -right-6 glass-surface p-6 rounded-xl ambient-shadow hidden md:block">
             <h1 class="font-headline-md text-primary mb-1">Magda Nowak</h1>
             <p class="font-label-sm text-secondary uppercase tracking-widest">Specjalista Podolog</p>
