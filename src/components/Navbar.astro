@@ -15,6 +15,7 @@ const navLinks = [
 const ofertaDropdown = [
   { href: '/zabiegi', label: 'Podologia stóp', sub: 'Cennik główny', icon: 'footprint' },
   { href: '/podologia-dloni', label: 'Podologia dłoni', sub: 'Terapia i pielęgnacja', icon: 'front_hand' },
+  { href: '/akcesoria', label: 'Akcesoria i Kosmetyki', sub: 'Pielęgnacja domowa', icon: 'shopping_basket' },
   { href: '/dezynfekcja', label: 'Dezynfekcja', sub: 'Ozonowanie obuwia', icon: 'microbiology' },
 ];
 
@@ -30,7 +31,7 @@ function isActive(href: string): boolean {
 }
 
 function isOfertaActive(): boolean {
-  return ['/zabiegi', '/podologia-dloni', '/dezynfekcja', '/oferta'].some(p => currentPath.startsWith(p));
+  return ['/zabiegi', '/podologia-dloni', '/dezynfekcja', '/akcesoria', '/oferta'].some(p => currentPath.startsWith(p));
 }
 
 function linkClass(href: string): string {

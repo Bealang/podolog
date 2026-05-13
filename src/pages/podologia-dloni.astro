@@ -1,8 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import logoImage from '../assets/images/logo_zdrowestopy.png';
 import podologiaDlonieImage from '../assets/images/podologia_dlonie.jpg';
+
+// Optymalizacja zdjęć zabiegów
+const treatmentImages = import.meta.glob('../assets/images/zabiegi_zdjecia/*.{png,jpg,jpeg,webp}');
+const optimizedImages = {};
+
+for (const path in treatmentImages) {
+  const fileName = path.split('/').pop();
+  const image = (await treatmentImages[path]());
+  const optimized = await getImage({ 
+    src: image.default, 
+    width: 800, 
+    format: 'webp',
+    quality: 80 
+  });
+  optimizedImages[fileName] = optimized.src;
+}
 ---
 
 <BaseLayout
@@ -13,7 +29,9 @@ import podologiaDlonieImage from '../assets/images/podologia_dlonie.jpg';
     <!-- Header -->
     <section class="max-w-7xl mx-auto mb-20 grid grid-cols-1 lg:grid-cols-3 items-center gap-12 text-center">
       <div class="hidden lg:flex items-center justify-end">
-        <Image src={logoImage} alt="Logo Zdrowe Stopy" class="w-48 h-auto opacity-90" />
+        <div class="w-64 h-64 flex items-center justify-center">
+          <Image src={logoImage} alt="Logo Zdrowe Stopy" class="w-48 h-auto opacity-90" />
+        </div>
       </div>
       <div class="flex flex-col items-center justify-center">
         <h1 class="text-3xl sm:text-4xl md:text-5xl font-headline-xl text-primary mb-4 tracking-tight uppercase">Podologia Dłoni</h1>
@@ -43,34 +61,37 @@ import podologiaDlonieImage from '../assets/images/podologia_dlonie.jpg';
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between group cursor-default">
-            <div class="mb-4"><h3 class="font-headline-md text-lg text-slate-800 transition-colors">Zakażenie bakteryjne</h3></div>
+            <div class="mb-4">
+              <h3 class="font-headline-md text-lg text-slate-800 transition-colors">Zakażenie bakteryjne</h3>
+              <p class="font-body-md text-slate-500 text-sm leading-relaxed mt-2">Zobacz efekty profesjonalnej terapii.</p>
+            </div>
             <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
               <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
               <span class="font-headline-md text-emerald-700">120 PLN</span>
             </div>
           </div>
-          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between group cursor-default">
+          <div data-no-modal class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between group cursor-default">
             <div class="mb-4"><h3 class="font-headline-md text-lg text-slate-800 transition-colors">Onycholiza</h3></div>
             <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
               <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
               <span class="font-headline-md text-emerald-700">120 PLN</span>
             </div>
           </div>
-          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between group cursor-default">
+          <div data-no-modal class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between group cursor-default">
             <div class="mb-4"><h3 class="font-headline-md text-lg text-slate-800 transition-colors">Przebarwienia i krwiaki podpaznokciowe</h3></div>
             <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
               <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
               <span class="font-headline-md text-emerald-700">120 PLN</span>
             </div>
           </div>
-          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between group cursor-default">
+          <div data-no-modal class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between group cursor-default">
             <div class="mb-4"><h3 class="font-headline-md text-lg text-slate-800 transition-colors">Zakażenia grzybicze</h3></div>
             <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
               <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
               <span class="font-headline-md text-emerald-700">120 PLN</span>
             </div>
           </div>
-          <div class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between group cursor-default">
+          <div data-no-modal class="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col justify-between group cursor-default">
             <div class="mb-4"><h3 class="font-headline-md text-lg text-slate-800 transition-colors">Brodawki wirusowe</h3></div>
             <div class="flex justify-between items-end border-t border-slate-100 pt-4 mt-auto">
               <span class="font-label-sm text-slate-400 uppercase tracking-widest text-xs">Cena</span>
@@ -81,4 +102,9 @@ import podologiaDlonieImage from '../assets/images/podologia_dlonie.jpg';
       </div>
     </section>
   </main>
+
+  <script define:vars={{ optimizedImages }}>
+    window.TREATMENT_IMAGES = optimizedImages;
+  </script>
+  <script src="../scripts/treatments-modal.js"></script>
 </BaseLayout>

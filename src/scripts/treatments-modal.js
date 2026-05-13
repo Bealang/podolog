@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const treatmentDetails = {
         "Podstawowy zabieg podologiczny": {
-            description: "<p>To profesjonalny zabieg o charakterze profilaktyczno-leczniczym. Pozwala nie tylko zadbać o estetykę, ale przede wszystkim wyeliminować dyskomfort związany ze zmianami skórnymi. Jest szczególnie polecany osobom zmagającym się bolesnymi modzelami, odciskami czy silnymi zrogowaceniami (hiperkeratozą), przede wszystkim pedicure medyczny można wykonywać także u osób z cukrzycą. Z zabiegu regularnie korzystają diabetycy, seniorzy, osoby aktywne fizycznie oraz pracujące w trybie stojącym. Podczas wizyty przeprowadzam wywiad i analizę stanu stóp, co pozwala dobrać odpowiednią terapię. Korzystam wyłącznie ze sterylnych narzędzi (autoklaw klasy medycznej) lub akcesoriów jednorazowych, co gwarantuje pełne bezpieczeństwo. Regularne wykonywanie pedicure medycznego to gwarancja zadbanych stóp oraz wczesnego wykrywania zmian patologicznych.</p><p><strong>Wskazaniami do wykonania pedicuru leczniczego stóp są:</strong></p><ul class='list-disc pl-5 mt-2 space-y-1'><li>wrastające paznokcie</li><li>hiperkeratozy paznokci, czyli nadmierne rogowacenie naskórka</li><li>odciski, modzele</li><li>pękające pięty</li><li>grzybica paznokci</li><li>dystrofia paznokci (nadmiernie łamliwe, łuszczące się i szorstkie paznokcie)</li><li>atrofia (zanik płytki paznokciowej)</li><li>inne dolegliwości</li></ul>",
+            description: "<p>To profesjonalny zabieg o charakterze profilaktyczno-leczniczym. Pozwala nie tylko zadbać o estetykę, ale przede wszystkim wyeliminować dyskomfort związany ze zmianami skórnymi. Szczególnie polecany osobom zmagającym się bolesnymi modzelami, odciskami czy silnymi zrogowaceniami (hiperkeratozą). Z zabiegu powinni regularnie korzystać diabetycy, seniorzy, osoby aktywne fizycznie oraz pracujące w trybie stojącym. Podczas wizyty przeprowadzam wywiad i analizę stanu stóp, co pozwala dobrać odpowiednią terapię. Korzystam wyłącznie ze sterylnych narzędzi (autoklaw klasy medycznej) lub akcesoriów jednorazowych, co gwarantuje pełne bezpieczeństwo. Regularne wykonywanie pedicure medycznego to gwarancja zadbanych stóp oraz wczesnego wykrywania zmian patologicznych.</p><p><strong>Wskazaniami do wykonania pedicuru leczniczego stóp są:</strong></p><ul class='list-disc pl-5 mt-2 space-y-1'><li>wrastające paznokcie</li><li>hiperkeratozy paznokci, czyli nadmierne rogowacenie naskórka</li><li>odciski, modzele</li><li>pękające pięty</li><li>grzybica paznokci</li><li>dystrofia paznokci (nadmiernie łamliwe, łuszczące się i szorstkie paznokcie)</li><li>atrofia (zanik płytki paznokciowej)</li><li>inne dolegliwości</li></ul>",
             image: "/images/zabiegi_zdjecia/podstawowy-zabieg-podologiczny.jpg"
         },
         "Badanie stopy cukrzycowej": {
@@ -11,21 +11,24 @@ document.addEventListener('DOMContentLoaded', () => {
         "Odciążenia": {
             description: "<p>Dobór i aplikacja materiałów chroniących bolesne miejsca przed uciskiem. Zastosowanie odpowiednich odciążeń pozwala na natychmiastowe zmniejszenie bólu i przyspiesza proces gojenia się zmian skórnych takich jak odciski czy pęknięcia.</p><p>Cena zabiegu zależy od rodzaju i ilości zużytego materiału.</p>"
         },
-        "Ortozy indywidualne": {
-            description: "<p>Gdy gotowe rozwiązania ze sklepu nie pomagają, wykonuję ortozy indywidualne z trwałych mas silikonowych. Służą one do separacji palców, zmniejszenia ucisku i korekcji deformacji. Są bezpieczne dla skóry i bardzo wytrzymałe.</p>"
-        },
         "Obcięcie i oszlifowanie paznokci zmienionych chorobowo": {
             description: "<p>Specjalistyczne opracowanie paznokci wymagających fachowej uwagi ze względu na toczące się procesy chorobowe. Bezpieczne dla pacjenta, z zachowaniem najwyższych standardów sterylności.</p>"
         },
         "Oczyszczenie paznokcia zmienionego chorobowo": {
-            description: "<p>Dokładne przygotowanie i oczyszczenie płytki dotkniętej zmianami patologicznymi, co przygotowuje ją do dalszej terapii leczniczej (np. przeciwgrzybiczej).</p>"
+            description: "<p>Dokładne przygotowanie i oczyszczenie płytki dotkniętej zmianami patologicznymi, co przygotowuje ją do dalszej terapii leczniczej (np. przeciwgrzybiczej).</p>",
+            imageBefore: "/images/zabiegi_zdjecia/oczyszczenie_przed.jpg",
+            imageAfter: "/images/zabiegi_zdjecia/oczyszczenie_po.jpg"
         },
         "Leczenie grzybicy": {
-            description: "<p>Grzybica paznokci to schorzenie, które początkowo objawia się subtelnymi zmianami w wyglądzie płytki paznokciowej – najczęściej zauważyć można jej żółtawe zabarwienie, szczególnie w bocznych częściach. Z czasem, jeśli nie zostanie podjęte leczenie, paznokcie stają się kruche, pogrubione, a płytka zaczyna oddzielać się od łożyska.</p><p>W terapii grzybicy kluczową rolę odgrywa regularna opieka podologiczna. Specjalista dokładnie oczyszcza zmienione chorobowo fragmenty paznokcia oraz dobiera odpowiednie preparaty przeciwgrzybicze. Takie działania zapobiegają dalszemu rozwojowi infekcji i wspomagają proces regeneracji płytki.</p><p>Leczenie grzybicy to proces długotrwały, który często wymaga ścisłej współpracy z lekarzem dermatologiem. Skuteczność terapii zależy w dużej mierze od systematyczności, właściwej pielęgnacji i cierpliwości pacjenta. Dzięki konsekwentnemu podejściu możliwe jest zatrzymanie choroby oraz przywrócenie paznokciom zdrowego wyglądu.</p>"
+            description: "<p>Grzybica paznokci to schorzenie, które początkowo objawia się subtelnymi zmianami w wyglądzie płytki paznokciowej – najczęściej zauważyć można jej żółtawe zabarwienie, szczególnie w bocznych częściach. Z czasem, jeśli nie zostanie podjęte leczenie, paznokcie stają się kruche, pogrubione, a płytka zaczyna oddzielać się od łożyska.</p><p>W terapii grzybicy kluczową rolę odgrywa regularna opieka podologiczna. Specjalistyczne oczyszczanie zmienionych chorobowo fragmentów paznokcia oraz dobór odpowiednich preparatów przeciwgrzybiczych zapobiegają dalszemu rozwojowi infekcji i wspomagają proces regeneracji płytki.</p><p>Leczenie grzybicy to proces długotrwały, który często wymaga ścisłej współpracy z lekarzem dermatologiem. Skuteczność terapii zależy w dużej mierze od systematyczności, właściwej pielęgnacji i cierpliwości pacjenta. Dzięki konsekwentnemu podejściu możliwe jest zatrzymanie choroby oraz przywrócenie paznokciom zdrowego wyglądu.</p>"
         },
         "Rekonstrukcja płytki paznokcia": {
             description: "<p>Uzupełnienie brakującej części paznokcia specjalistyczną masą. Zabieg estetyczny i ochronny, wykonywany przy użyciu elastycznych mas żelowych lub akrylowych z dodatkiem składników przeciwgrzybiczych. Rekonstrukcja jest możliwa, gdy zachowane jest co najmniej 1/3 naturalnej płytki (wolnej od grzybicy). Masa ściśle przylega do łożyska, ale nie blokuje naturalnego wzrostu paznokcia.</p>",
             image: "/images/zabiegi_zdjecia/plytka_paznokci.png"
+        },
+        "Zakażenie bakteryjne": {
+            imageBefore: "/images/zabiegi_zdjecia/Oczyszczenie paznokcia zmienionego chorobowo przed.jpg",
+            imageAfter: "/images/zabiegi_zdjecia/Oczyszczenie paznokcia zmienionego chorobowo po.jpg"
         },
         "Wrastający paznokieć": {
             description: "<p>Zaburzenie najczęściej spowodowane urazem stopy, źle dobranym, zbyt ciasnym obuwiem, nieodpowiednią pielęgnacją paznokci (obcinanie boków płytki paznokciowej), nadwagą lub uwarunkowaniami genetycznymi. Problem ten dotyczy osób w każdym wieku. Dodatkowo wpływ na wrastanie paznokci mają deformacje stóp lub niewydolność żylna.</p><p>Gdy paznokieć wrasta skutkuje to zaczerwienieniem, obrzękiem, a następnie silnym bólem wału okołopaznokciowego. Kiedy skóra zostaje uszkodzona do ranek dostają się bakterie i dochodzi do stanu zapalnego. Wówczas specjalista podolog wycina wrastający element paznokcia i prawidłowo opracowuje jego płytkę co wprawdzie powoduje szybką ulgę, ale jest to tylko doraźne rozwiązanie, gdyż paznokieć po pewnym czasie odrośnie dokładnie w ten sam nieprawidłowy sposób.</p><p>Dlatego długoterminowym, najlepszym rozwiązaniem jest założenie odpowiedniej klamry na paznokieć!</p>",
@@ -69,16 +72,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inject modal HTML
     const modalHTML = `
     <div id="treatment-modal" class="fixed inset-0 z-[300] flex items-center justify-center p-4 sm:p-6 opacity-0 pointer-events-none transition-opacity duration-300">
-        <div id="treatment-modal-backdrop" class="absolute inset-0 bg-slate-900/50 backdrop-blur-sm cursor-pointer"></div>
-        <div class="bg-white rounded-[2rem] overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.25)] max-w-3xl w-full max-h-[95vh] flex flex-col relative z-10 transform scale-95 opacity-0 transition-all duration-300" id="treatment-modal-content">
-            <button id="close-modal-btn" aria-label="Zamknij" class="absolute top-4 right-4 z-30 w-10 h-10 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center text-slate-600 hover:text-emerald-700 hover:bg-emerald-50 shadow-sm transition-all cursor-pointer">
+        <div id="treatment-modal-backdrop" class="absolute inset-0 bg-slate-900/70 backdrop-blur-md cursor-pointer"></div>
+        <div class="bg-white rounded-[2rem] overflow-hidden shadow-[0_30px_60px_-12px_rgba(0,0,0,0.4)] max-w-4xl w-full max-h-[90vh] flex flex-col relative z-10 transform scale-95 opacity-0 transition-all duration-300" id="treatment-modal-content">
+            <button id="close-modal-btn" aria-label="Zamknij" class="absolute top-4 right-4 z-50 w-10 h-10 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center text-slate-600 hover:text-emerald-700 hover:bg-emerald-50 shadow-md transition-all cursor-pointer">
                 <span class="material-symbols-outlined">close</span>
             </button>
-            <div id="modal-image-container" class="w-full hidden shrink-0 relative bg-gradient-to-b from-emerald-50/50 to-white pt-12 pb-6 px-6">
-                <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-emerald-200/30 via-transparent to-transparent opacity-80 pointer-events-none"></div>
-                <img id="modal-image" src="" alt="Zdjęcie zabiegu" class="relative z-10 max-w-full h-auto max-h-56 sm:max-h-72 object-contain mx-auto drop-shadow-[0_15px_25px_rgba(4,120,87,0.15)] transition-transform duration-700 ease-out hover:scale-[1.03]">
+            
+            <div id="modal-image-container" class="w-full hidden shrink-0 relative bg-slate-50 p-6 sm:p-8 border-b border-slate-100">
+                <!-- Single Image View -->
+                <div id="modal-single-image-wrapper" class="hidden">
+                    <img id="modal-image" src="" alt="Zdjęcie zabiegu" class="max-w-full h-auto max-h-[40vh] object-contain mx-auto rounded-xl shadow-lg">
+                </div>
+                
+                <!-- Before/After View -->
+                <div id="modal-before-after" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-6 items-start">
+                    <div class="space-y-3 text-center">
+                        <span class="inline-block py-1 px-3 bg-slate-200 text-slate-600 font-label-sm text-[10px] uppercase tracking-widest rounded-full font-bold">Przed zabiegiem</span>
+                        <div class="rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-white">
+                            <img id="modal-image-before" src="" alt="Przed" class="w-full h-auto display-block">
+                        </div>
+                    </div>
+                    <div class="space-y-3 text-center">
+                        <span class="inline-block py-1 px-3 bg-emerald-100 text-emerald-700 font-label-sm text-[10px] uppercase tracking-widest rounded-full font-bold">Po zabiegu</span>
+                        <div class="rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-white">
+                            <img id="modal-image-after" src="" alt="Po" class="w-full h-auto display-block">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="p-6 sm:p-10 overflow-y-auto flex-1 bg-white">
+
+            <div class="p-8 sm:p-10 overflow-y-auto flex-1 bg-white">
                 <div class="flex items-center gap-3 mb-4">
                     <span class="inline-block py-1.5 px-3 bg-emerald-50 text-emerald-700 font-label-sm text-xs uppercase tracking-widest rounded-lg font-bold border border-emerald-100">Szczegóły zabiegu</span>
                 </div>
@@ -108,6 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const mPrice = document.getElementById('modal-price');
     const mImgContainer = document.getElementById('modal-image-container');
     const mImg = document.getElementById('modal-image');
+    const mBeforeAfterContainer = document.getElementById('modal-before-after');
+    const mImgBefore = document.getElementById('modal-image-before');
+    const mImgAfter = document.getElementById('modal-image-after');
 
     const openModal = () => {
         modal.classList.remove('opacity-0', 'pointer-events-none');
@@ -129,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Escape' && !modal.classList.contains('pointer-events-none')) closeModal();
     });
 
-    const cards = document.querySelectorAll('.grid > div.bg-white');
+    const cards = document.querySelectorAll('.grid > div.bg-white:not([data-no-modal])');
     cards.forEach(card => {
         card.classList.remove('cursor-default');
         card.classList.add('cursor-pointer', 'hover:shadow-lg', 'hover:border-emerald-200', 'hover:-translate-y-1', 'active:scale-[0.98]', 'treatment-card');
@@ -166,18 +192,34 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 mDesc.innerHTML = `<p>${shortDesc}</p>`;
             }
-            if (details && details.image) {
-                mImgContainer.classList.remove('hidden');
-                // Use optimized image from Astro if available
-                const fileName = details.image.split('/').pop();
-                if (window.TREATMENT_IMAGES && window.TREATMENT_IMAGES[fileName]) {
-                    mImg.src = window.TREATMENT_IMAGES[fileName];
-                } else {
-                    mImg.src = details.image;
+
+            const mSingleImgWrapper = document.getElementById('modal-single-image-wrapper');
+            
+            // Reset image views
+            if (mImg) mImg.classList.add('hidden');
+            if (mSingleImgWrapper) mSingleImgWrapper.classList.add('hidden');
+            mBeforeAfterContainer.classList.add('hidden');
+            mImgContainer.classList.add('hidden');
+
+            if (details) {
+                if (details.imageBefore && details.imageAfter) {
+                    mImgContainer.classList.remove('hidden');
+                    mBeforeAfterContainer.classList.remove('hidden');
+                    
+                    const fileNameBefore = details.imageBefore.split('/').pop();
+                    const fileNameAfter = details.imageAfter.split('/').pop();
+                    
+                    mImgBefore.src = (window.TREATMENT_IMAGES && window.TREATMENT_IMAGES[fileNameBefore]) ? window.TREATMENT_IMAGES[fileNameBefore] : details.imageBefore;
+                    mImgAfter.src = (window.TREATMENT_IMAGES && window.TREATMENT_IMAGES[fileNameAfter]) ? window.TREATMENT_IMAGES[fileNameAfter] : details.imageAfter;
+                } else if (details.image) {
+                    mImgContainer.classList.remove('hidden');
+                    if (mSingleImgWrapper) mSingleImgWrapper.classList.remove('hidden');
+                    mImg.classList.remove('hidden');
+                    const fileName = details.image.split('/').pop();
+                    mImg.src = (window.TREATMENT_IMAGES && window.TREATMENT_IMAGES[fileName]) ? window.TREATMENT_IMAGES[fileName] : details.image;
                 }
-            } else {
-                mImgContainer.classList.add('hidden');
             }
+            
             openModal();
         });
 
