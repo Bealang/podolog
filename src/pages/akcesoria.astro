@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 import logoImage from '../assets/images/logo_zdrowestopy.png';
-import akcesoriaImage from '../assets/images/akcesoria_podologiczne.png';
 ---
 
 <BaseLayout
@@ -23,11 +22,9 @@ import akcesoriaImage from '../assets/images/akcesoria_podologiczne.png';
       </div>
       <div class="hidden lg:flex items-center justify-start">
         <div class="w-64 h-64 overflow-hidden rounded-[2.5rem] shadow-xl border-4 border-white">
-          <Image 
-            src={akcesoriaImage} 
+          <img 
+            src="/images/akecesoriaikosmetyki.jpg" 
             alt="Akcesoria i kosmetyki podologiczne" 
-            width={600}
-            height={600}
             class="w-full h-full object-cover" 
           />
         </div>
