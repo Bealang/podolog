@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         "Oczyszczenie paznokcia zmienionego chorobowo": {
             description: "<p>Dokładne przygotowanie i oczyszczenie płytki dotkniętej zmianami patologicznymi, co przygotowuje ją do dalszej terapii leczniczej (np. przeciwgrzybiczej).</p>",
-            imageBefore: "/images/zabiegi_zdjecia/oczyszczenie_przed.jpg",
-            imageAfter: "/images/zabiegi_zdjecia/oczyszczenie_po.jpg"
+            imageBefore: "/images/zabiegi_zdjecia/Oczyszczenie paznokcia zmienionego chorobowo przed.jpg",
+            imageAfter: "/images/zabiegi_zdjecia/Oczyszczenie paznokcia zmienionego chorobowo po.jpg"
         },
         "Leczenie grzybicy": {
             description: "<p>Grzybica paznokci to schorzenie, które początkowo objawia się subtelnymi zmianami w wyglądzie płytki paznokciowej – najczęściej zauważyć można jej żółtawe zabarwienie, szczególnie w bocznych częściach. Z czasem, jeśli nie zostanie podjęte leczenie, paznokcie stają się kruche, pogrubione, a płytka zaczyna oddzielać się od łożyska.</p><p>W terapii grzybicy kluczową rolę odgrywa regularna opieka podologiczna. Specjalistyczne oczyszczanie zmienionych chorobowo fragmentów paznokcia oraz dobór odpowiednich preparatów przeciwgrzybiczych zapobiegają dalszemu rozwojowi infekcji i wspomagają proces regeneracji płytki.</p><p>Leczenie grzybicy to proces długotrwały, który często wymaga ścisłej współpracy z lekarzem dermatologiem. Skuteczność terapii zależy w dużej mierze od systematyczności, właściwej pielęgnacji i cierpliwości pacjenta. Dzięki konsekwentnemu podejściu możliwe jest zatrzymanie choroby oraz przywrócenie paznokciom zdrowego wyglądu.</p>"
@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
             image: "/images/zabiegi_zdjecia/plytka_paznokci.png"
         },
         "Zakażenie bakteryjne": {
-            imageBefore: "/images/zabiegi_zdjecia/Oczyszczenie paznokcia zmienionego chorobowo przed.jpg",
-            imageAfter: "/images/zabiegi_zdjecia/Oczyszczenie paznokcia zmienionego chorobowo po.jpg"
+            imageBefore: "/images/zabiegi_zdjecia/oczyszczenie_przed.jpg",
+            imageAfter: "/images/zabiegi_zdjecia/oczyszczenie_po.jpg"
         },
         "Wrastający paznokieć": {
             description: "<p>Zaburzenie najczęściej spowodowane urazem stopy, źle dobranym, zbyt ciasnym obuwiem, nieodpowiednią pielęgnacją paznokci (obcinanie boków płytki paznokciowej), nadwagą lub uwarunkowaniami genetycznymi. Problem ten dotyczy osób w każdym wieku. Dodatkowo wpływ na wrastanie paznokci mają deformacje stóp lub niewydolność żylna.</p><p>Gdy paznokieć wrasta skutkuje to zaczerwienieniem, obrzękiem, a następnie silnym bólem wału okołopaznokciowego. Kiedy skóra zostaje uszkodzona do ranek dostają się bakterie i dochodzi do stanu zapalnego. Wówczas specjalista podolog wycina wrastający element paznokcia i prawidłowo opracowuje jego płytkę co wprawdzie powoduje szybką ulgę, ale jest to tylko doraźne rozwiązanie, gdyż paznokieć po pewnym czasie odrośnie dokładnie w ten sam nieprawidłowy sposób.</p><p>Dlatego długoterminowym, najlepszym rozwiązaniem jest założenie odpowiedniej klamry na paznokieć!</p>",

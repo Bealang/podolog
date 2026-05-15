@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instrukcja Obsługi Strony - Zdrowe Stopy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        :root {
+            --brand-primary: #065f46;
+            --brand-dark: #064e3b;
+            --brand-light: #f0fdf4;
+            --brand-accent: #10b981;
+            
+            --bg-main: #fcfcfd;
+            --bg-card: #ffffff;
+            --border-subtle: #eff1f5;
+            --border-main: #e2e8f0;
+            
+            --text-strong: #0f172a;
+            --text-medium: #475569;
+            --text-subtle: #94a3b8;
+            
+            --radius-xl: 1.5rem;
+            --radius-lg: 1rem;
+            --radius-md: 0.625rem;
+            
+            --shadow-subtle: 0 1px 3px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-card: 0 10px 15px -3px rgba(0,0,0,0.03), 0 4px 6px -4px rgba(0,0,0,0.03);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-medium);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-strong);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        /* Layout */
+        .app-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 1024px) {
+            .app-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            background-color: var(--bg-card);
+            border-right: 1px solid var(--border-subtle);
+            padding: 3rem 2rem;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar {
+                position: relative;
+                height: auto;
+                padding: 2rem;
+                border-right: none;
+                border-bottom: 1px solid var(--border-subtle);
+            }
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--brand-primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .logo-text {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--text-strong);
+        }
+
+        .toc-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .toc-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            color: var(--text-medium);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            border-radius: var(--radius-md);
+            transition: none; /* User requested no hovers */
+        }
+
+        .toc-link.active {
+            background-color: var(--brand-light);
+            color: var(--brand-primary);
+        }
+
+        .toc-link .material-symbols-outlined {
+            font-size: 1.25rem;
+            opacity: 0.7;
+        }
+
+        /* Main Content */
+        .content-area {
+            padding: 4rem 5rem;
+            max-width: 900px;
+        }
+
+        @media (max-width: 1024px) {
+            .content-area {
+                padding: 3rem 2rem;
+            }
+        }
+
+        .header-section {
+            margin-bottom: 5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--brand-light);
+            color: var(--brand-primary);
+            padding: 0.35rem 0.85rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+
+        .header-section h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .header-section p {
+            font-size: 1.25rem;
+            color: var(--text-medium);
+            max-width: 600px;
+        }
+
+        /* Content Blocks */
+        .section-block {
+            margin-bottom: 6rem;
+        }
+
+        .section-block h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-block h2::before {
+            content: "";
+            width: 4px;
+            height: 32px;
+            background: var(--brand-primary);
+            border-radius: 2px;
+        }
+
+        .section-text {
+            font-size: 1.0625rem;
+            margin-bottom: 2rem;
+            color: var(--text-medium);
+        }
+
+        /* Documentation Cards */
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-main);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-subtle);
+            margin-bottom: 2rem;
+        }
+
+        .card-title {
+            font-weight: 700;
+            color: var(--text-strong);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* Path Component */
+        .path-display {
+            background: #f8fafc;
+            border: 1px solid var(--border-main);
+            padding: 1rem 1.25rem;
+            border-radius: var(--radius-md);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            color: var(--text-strong);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .path-display .material-symbols-outlined {
+            color: var(--text-subtle);
+            font-size: 1.25rem;
+        }
+
+        /* Checklist */
+        .feature-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 640px) {
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.9375rem;
+            color: var(--text-medium);
+        }
+
+        .feature-item .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--brand-accent);
+            border-radius: 50%;
+        }
+
+        /* Callouts */
+        .callout {
+            padding: 1.75rem;
+            border-radius: var(--radius-lg);
+            margin: 2.5rem 0;
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        .callout-warning {
+            background-color: #fffbeb;
+            border: 1px solid #fde68a;
+        }
+
+        .callout-info {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+        }
+
+        .callout-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .callout-warning .callout-icon { background: #fef3c7; color: #92400e; }
+        .callout-info .callout-icon { background: #dbeafe; color: #1e40af; }
+
+        .callout-content h4 {
+            font-size: 1.0625rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .callout-content p {
+            font-size: 0.9375rem;
+            color: inherit;
+            opacity: 0.8;
+        }
+
+        /* Steps */
+        .step-group {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .step-group::before {
+            content: "";
+            position: absolute;
+            left: 20px;
+            top: 40px;
+            bottom: 40px;
+            width: 1px;
+            background: var(--border-main);
+        }
+
+        .step-item {
+            display: flex;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border: 2px solid var(--border-main);
+            color: var(--text-strong);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+            z-index: 1;
+        }
+
+        .step-content h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 10rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border-subtle);
+            text-align: left;
+            color: var(--text-subtle);
+            font-size: 0.875rem;
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f1f5f9;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--brand-primary);
+        }
+
+        .code-snippet {
+            background: #0f172a;
+            color: #f8fafc;
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    
+    <!-- Left Navigation -->
+    <aside class="sidebar">
+        <div class="logo-area">
+            <div class="logo-icon">
+                <span class="material-symbols-outlined">auto_stories</span>
+            </div>
+            <div class="logo-text">Zdrowe Stopy</div>
+        </div>
+
+        <nav class="toc-nav">
+            <a href="#intro" class="toc-link active">
+                <span class="material-symbols-outlined">home</span>
+                Wprowadzenie
+            </a>
+            <a href="#galeria" class="toc-link">
+                <span class="material-symbols-outlined">image</span>
+                Galeria zdjęć
+            </a>
+            <a href="#godziny" class="toc-link">
+                <span class="material-symbols-outlined">schedule</span>
+                Godziny otwarcia
+            </a>
+            <a href="#kontakt" class="toc-link">
+                <span class="material-symbols-outlined">contact_support</span>
+                Dane kontaktowe
+            </a>
+            <a href="#publikacja" class="toc-link">
+                <span class="material-symbols-outlined">rocket_launch</span>
+                Publikacja strony
+            </a>
+            <a href="#struktura" class="toc-link">
+                <span class="material-symbols-outlined">folder_open</span>
+                Struktura plików
+            </a>
+        </nav>
+
+        <div style="margin-top: auto;">
+            <div style="font-size: 0.75rem; color: var(--text-subtle); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Status Systemu</div>
+            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem; color: var(--text-medium);">
+                <div style="width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></div>
+                Wersja 1.0.4 - Gotowa
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content-area">
+        
+        <header id="intro" class="header-section">
+            <span class="badge">Dokumentacja Techniczna</span>
+            <h1>Przewodnik po zarządzaniu stroną</h1>
+            <p>Niniejsza instrukcja pomoże Ci w samodzielnej aktualizacji treści, zarządzaniu galerią oraz publikacji zmian na serwerze.</p>
+        </header>
+
+        <!-- Galeria -->
+        <section id="galeria" class="section-block">
+            <h2>Galeria zdjęć</h2>
+            <p class="section-text">
+                Strona posiada inteligentny mechanizm zarządzania obrazami. Nie musisz dopisywać żadnego kodu, aby nowe zdjęcia pojawiły się w galerii – wystarczy, że umieścisz pliki w odpowiednim folderze.
+            </p>
+
+            <div class="info-card">
+                <div class="card-title">
+                    <span class="material-symbols-outlined" style="color: var(--brand-primary);">folder</span>
+                    Folder docelowy
+                </div>
+                <div class="path-display">
+                    <span class="material-symbols-outlined">terminal</span>
+                    src/assets/images/galeria/
+                </div>
+                <ul class="feature-list">
+                    <li class="feature-item"><div class="dot"></div> Format .webp (zalecany)</li>
+                    <li class="feature-item"><div class="dot"></div> Max. 500 KB na zdjęcie</li>
+                    <li class="feature-item"><div class="dot"></div> Dowolna nazwa pliku</li>
+                    <li class="feature-item"><div class="dot"></div> Automatyczne skanowanie</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Godziny -->
+        <section id="godziny" class="section-block">
+            <h2>Godziny otwarcia</h2>
+            <p class="section-text">
+                Informacje o godzinach otwarcia są przechowywane w dwóch miejscach: jedno służy do wyświetlenia tekstu na podstronie Kontakt, a drugie informuje wyszukiwarkę Google (Schema SEO).
+            </p>
+
+            <div class="step-group">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Aktualizacja na stronie</h4>
+                        <p>Otwórz plik <code>src/pages/kontakt.astro</code> i odszukaj sekcję Godziny otwarcia (linia ok. 42). Zmień tekst widoczny dla pacjentów.</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Aktualizacja dla Google (SEO)</h4>
+                        <p>To bardzo ważne dla pozycjonowania. Otwórz <code>src/layouts/BaseLayout.astro</code> i zaktualizuj wartości w sekcji <code>openingHoursSpecification</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout callout-info">
+                <div class="callout-icon">
+                    <span class="material-symbols-outlined">info</span>
+                </div>
+                <div class="callout-content">
+                    <h4>Dlaczego dwa miejsca?</h4>
+                    <p>Google wymaga specjalnego formatu danych (JSON-LD), aby wyświetlać godziny bezpośrednio w wynikach wyszukiwania, podczas gdy strona Kontakt wymaga formatu czytelnego dla człowieka.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontakt -->
+        <section id="kontakt" class="section-block">
+            <h2>Dane kontaktowe</h2>
+            <p class="section-text">Wszystkie dane teleadresowe są zgrupowane w jednym pliku, co ułatwia ich szybką edycję.</p>
+            
+            <div class="info-card">
+                <div class="card-title">
+                    <span class="material-symbols-outlined" style="color: var(--brand-primary);">edit_document</span>
+                    Plik do edycji: src/pages/kontakt.astro
+                </div>
+                <div class="feature-list" style="grid-template-columns: 1fr;">
+                    <li class="feature-item"><div class="dot" style="background: var(--text-subtle);"></div> <strong>Telefon:</strong> Szukaj numeru w linii ok. 27</li>
+                    <li class="feature-item"><div class="dot" style="background: var(--text-subtle);"></div> <strong>Adres:</strong> Szukaj tekstu w linii ok. 22</li>
+                    <li class="feature-item"><div class="dot" style="background: var(--text-subtle);"></div> <strong>Email:</strong> Szukaj adresu w linii ok. 32</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Publikacja -->
+        <section id="publikacja" class="section-block">
+            <h2>Publikacja strony</h2>
+            <p class="section-text">Strona korzysta z generatora Astro. Aby zmiany były widoczne w sieci, należy wygenerować gotowe pliki i wgrać je na serwer.</p>
+
+            <div class="step-group">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Podgląd zmian</h4>
+                        <p>Uruchom lokalny serwer, aby sprawdzić jak wyglądają zmiany przed publikacją:</p>
+                        <div class="code-snippet">npm run dev</div>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Budowanie projektu</h4>
+                        <p>Wygeneruj gotowe pliki do wysłania na serwer:</p>
+                        <div class="code-snippet">npm run build</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="callout callout-warning">
+                <div class="callout-icon">
+                    <span class="material-symbols-outlined">warning</span>
+                </div>
+                <div class="callout-content">
+                    <h4>Gdzie są pliki do wysłania?</h4>
+                    <p>Po wykonaniu komendy <code>npm run build</code>, w głównym folderze powstanie folder <strong>dist/</strong>. To jego zawartość (a nie cały projekt) należy skopiować na serwer FTP.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Struktura -->
+        <section id="struktura" class="section-block">
+            <h2>Struktura plików</h2>
+            <p class="section-text">Najważniejsze foldery, o których warto wiedzieć:</p>
+            
+            <div class="feature-list" style="grid-template-columns: 1fr; gap: 1.5rem;">
+                <div style="display: flex; gap: 1rem; align-items: start;">
+                    <code style="white-space: nowrap;">src/pages/</code>
+                    <p style="font-size: 0.875rem;">Główne podstrony serwisu. Edytuj je, aby zmienić treści na stronie.</p>
+                </div>
+                <div style="display: flex; gap: 1rem; align-items: start;">
+                    <code style="white-space: nowrap;">src/components/</code>
+                    <p style="font-size: 0.875rem;">Elementy powtarzalne, takie jak Menu, Stopka czy przyciski.</p>
+                </div>
+                <div style="display: flex; gap: 1rem; align-items: start;">
+                    <code style="white-space: nowrap;">src/assets/</code>
+                    <p style="font-size: 0.875rem;">Zdjęcia, ikony oraz style CSS używane w projekcie.</p>
+                </div>
+                <div style="display: flex; gap: 1rem; align-items: start;">
+                    <code style="white-space: nowrap;">public/</code>
+                    <p style="font-size: 0.875rem;">Pliki statyczne, które nie są przetwarzane (np. favicon, ikony aplikacji).</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <p>Dokumentacja Zdrowe Stopy. Opracowano w oparciu o standardy Astro 2024.</p>
+        </footer>
+
+    </main>
+</div>
+
+</body>
+</html>

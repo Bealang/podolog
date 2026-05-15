@@ -1,54 +1,120 @@
 ---
-import { Image } from 'astro:assets';
-import logoImage from '../assets/images/logo_zdrowestopy.png';
+import { Image } from "astro:assets";
+import logoImage from "../assets/images/logo_zdrowestopy.png";
 ---
 
-<footer class="w-full border-t border-emerald-100 bg-slate-50 pt-16 pb-8 shrink-0">
+<footer
+  class="w-full border-t border-emerald-100 bg-slate-50 pt-16 pb-8 shrink-0"
+>
   <div class="max-w-7xl mx-auto px-8">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
       <!-- Brand Column -->
       <div class="col-span-1 md:col-span-2 space-y-6">
         <a href="/" class="flex items-center gap-3">
-          <Image src={logoImage} alt="Logo" class="h-12 w-auto" width={48} height={48} />
-          <span class="text-2xl font-bold text-emerald-900 tracking-tighter">Zdrowe Stopy</span>
+          <Image
+            src={logoImage}
+            alt="Logo"
+            class="h-12 w-auto"
+            width={48}
+            height={48}
+          />
+          <span class="text-2xl font-bold text-emerald-900 tracking-tighter"
+            >Zdrowe Stopy</span
+          >
         </a>
         <p class="text-slate-500 font-body-md text-sm leading-relaxed max-w-sm">
-          Specjalistyczny Gabinet Podologiczny. Profesjonalne zabiegi podologiczne, nowoczesny
-          sprzęt i najwyższe standardy higieny.
+          Gabinet podologiczny "Zdrowe Stopy" w Myślenicach. Profesjonalne
+          zabiegi podologiczne, nowoczesny sprzęt i najwyższe standardy higieny.
         </p>
       </div>
 
       <!-- Navigation Column -->
       <div class="col-span-1 space-y-6">
-        <h4 class="text-sm font-bold uppercase tracking-widest text-emerald-900">Gabinet</h4>
+        <h4
+          class="text-sm font-bold uppercase tracking-widest text-emerald-900"
+        >
+          Gabinet
+        </h4>
         <nav class="flex flex-col gap-3">
-          <a href="/" class="text-slate-500 hover:text-emerald-700 text-sm transition-colors w-fit">Strona główna</a>
-          <a href="/o-mnie" class="text-slate-500 hover:text-emerald-700 text-sm transition-colors w-fit">O mnie</a>
-          <a href="/galeria" class="text-slate-500 hover:text-emerald-700 text-sm transition-colors w-fit">Galeria</a>
-          <a href="/kontakt" class="text-slate-500 hover:text-emerald-700 text-sm transition-colors w-fit">Kontakt</a>
+          <a
+            href="/"
+            class="text-slate-500 hover:text-emerald-700 text-sm transition-colors w-fit"
+            >Strona główna</a
+          >
+          <a
+            href="/o-mnie"
+            class="text-slate-500 hover:text-emerald-700 text-sm transition-colors w-fit"
+            >O mnie</a
+          >
+          <a
+            href="/galeria"
+            class="text-slate-500 hover:text-emerald-700 text-sm transition-colors w-fit"
+            >Galeria</a
+          >
+          <a
+            href="/sterylizacja"
+            class="text-slate-500 hover:text-emerald-700 text-sm transition-colors w-fit"
+            >Sterylizacja</a
+          >
+          <a
+            href="/kontakt"
+            class="text-slate-500 hover:text-emerald-700 text-sm transition-colors w-fit"
+            >Kontakt</a
+          >
         </nav>
       </div>
 
       <!-- Services Column -->
       <div class="col-span-1 space-y-6">
-        <h4 class="text-sm font-bold uppercase tracking-widest text-emerald-900">Usługi</h4>
+        <h4
+          class="text-sm font-bold uppercase tracking-widest text-emerald-900"
+        >
+          Usługi
+        </h4>
         <nav class="flex flex-col gap-3">
-          <a href="/zabiegi" class="text-slate-500 hover:text-emerald-700 text-sm transition-colors w-fit">Podologia stóp</a>
-          <a href="/podologia-dloni" class="text-slate-500 hover:text-emerald-700 text-sm transition-colors w-fit">Podologia dłoni</a>
-          <a href="/sterylizacja" class="text-slate-500 hover:text-emerald-700 text-sm transition-colors w-fit">Sterylizacja</a>
-          <a href="/dezynfekcja" class="text-slate-500 hover:text-emerald-700 text-sm transition-colors w-fit">Dezynfekcja</a>
+          <a
+            href="/zabiegi"
+            class="text-slate-500 hover:text-emerald-700 text-sm transition-colors w-fit"
+            >Podologia stóp</a
+          >
+          <a
+            href="/podologia-dloni"
+            class="text-slate-500 hover:text-emerald-700 text-sm transition-colors w-fit"
+            >Podologia dłoni</a
+          >
+          <a
+            href="/akcesoria"
+            class="text-slate-500 hover:text-emerald-700 text-sm transition-colors w-fit"
+            >Akcesoria i Kosmetyki</a
+          >
+          <a
+            href="/dezynfekcja"
+            class="text-slate-500 hover:text-emerald-700 text-sm transition-colors w-fit"
+            >Dezynfekcja</a
+          >
         </nav>
       </div>
     </div>
 
     <!-- Bottom Line -->
-    <div class="pt-8 border-t border-emerald-100/60 flex flex-col md:flex-row justify-between items-center gap-6">
-      <div class="text-slate-500 font-sans text-xs uppercase tracking-widest text-center md:text-left">
+    <div
+      class="pt-8 border-t border-emerald-100/60 flex flex-col md:flex-row justify-between items-center gap-6"
+    >
+      <div
+        class="text-slate-500 font-sans text-xs uppercase tracking-widest text-center md:text-left"
+      >
         © <span class="current-year"></span> Zdrowe Stopy. Wszelkie prawa zastrzeżone.
       </div>
-      <div class="font-sans text-xs uppercase tracking-widest text-slate-500 text-center md:text-right">
-        Design by <a href="https://web2sell.pl/" target="_blank" rel="noopener noreferrer"
-          class="font-bold text-emerald-800 hover:text-emerald-600 transition-colors">Web2Sell</a>
+      <div
+        class="font-sans text-xs uppercase tracking-widest text-slate-500 text-center md:text-right"
+      >
+        Design by <a
+          href="https://web2sell.pl/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-bold text-emerald-800 hover:text-emerald-600 transition-colors"
+          >Web2Sell</a
+        >
       </div>
     </div>
   </div>

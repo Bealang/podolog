@@ -1,2 +1,4 @@
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://podologiamyslenice.pl/sitemap-index.xml
