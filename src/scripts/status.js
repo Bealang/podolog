@@ -1,3 +1,22 @@
+/**
+ * Konfiguracja godzin otwarcia
+ * Pozwala na łatwą zmianę bez ingerencji w logikę silnika.
+ */
+const SCHEDULE = {
+    1: { open: "08:30", close: "17:00" }, // Poniedziałek
+    2: { open: "08:30", close: "17:00" }, // Wtorek
+    3: { open: "08:30", close: "17:00" }, // Środa
+    4: { open: "08:30", close: "17:00" }, // Czwartek
+    5: { open: "08:30", close: "17:00" }, // Piątek
+    6: { open: "08:00", close: "13:00" }, // Sobota
+    0: null // Niedziela (null = zamknięte)
+};
+
+function timeToMinutes(timeStr) {
+    const [hrs, mins] = timeStr.split(':').map(Number);
+    return hrs * 60 + mins;
+}
+
 function updateStatus() {
     const now = new Date();
     const day = now.getDay();
@@ -5,49 +24,43 @@ function updateStatus() {
     const minutes = now.getMinutes();
     const currentTime = hour * 60 + minutes;
 
+    const todaySchedule = SCHEDULE[day];
     let isOpen = false;
     let statusText = "Zamknięte";
     let statusTime = "";
-    let indicatorColor = "bg-rose-500";
-    let indicatorShadow = "rgba(244,63,94,0.6)";
+    
+    // Logika wyznaczania statusu
+    if (todaySchedule) {
+        const openMin = timeToMinutes(todaySchedule.open);
+        const closeMin = timeToMinutes(todaySchedule.close);
 
-    if (day >= 1 && day <= 4) {
-        if (currentTime >= 8 * 60 + 30 && currentTime < 17 * 60) {
+        if (currentTime >= openMin && currentTime < closeMin) {
             isOpen = true;
-            statusTime = "do 17:00";
-        } else if (currentTime < 8 * 60 + 30) {
-            statusTime = "otwarte dzisiaj od 08:30";
+            statusTime = `do ${todaySchedule.close}`;
+        } else if (currentTime < openMin) {
+            statusTime = `otwarte dzisiaj od ${todaySchedule.open}`;
         } else {
-            statusTime = "otwarte jutro od 08:30";
-        }
-    } else if (day === 5) {
-        if (currentTime >= 8 * 60 + 30 && currentTime < 17 * 60) {
-            isOpen = true;
-            statusTime = "do 17:00";
-        } else if (currentTime < 8 * 60 + 30) {
-            statusTime = "otwarte dzisiaj od 08:30";
-        } else {
-            statusTime = "otwarte jutro od 08:00";
-        }
-    } else if (day === 6) {
-        if (currentTime >= 8 * 60 && currentTime < 13 * 60) {
-            isOpen = true;
-            statusTime = "do 13:00";
-        } else if (currentTime < 8 * 60) {
-            statusTime = "otwarte dzisiaj od 08:00";
-        } else {
-            statusTime = "otwarte w pon. od 08:30";
+            // Po zamknięciu dzisiaj, sprawdź kiedy otwarte jutro
+            const nextDay = (day + 1) % 7;
+            const nextSchedule = SCHEDULE[nextDay];
+            if (nextSchedule) {
+                statusTime = `otwarte jutro od ${nextSchedule.open}`;
+            } else {
+                statusTime = `otwarte w pon. od ${SCHEDULE[1].open}`;
+            }
         }
     } else {
-        statusTime = "otwarte jutro od 08:30";
+        // Dzisiaj (niedziela) zamknięte
+        statusTime = `otwarte jutro od ${SCHEDULE[1].open}`;
     }
 
     if (isOpen) {
         statusText = "Otwarte";
-        indicatorColor = "bg-emerald-500";
-        indicatorShadow = "rgba(16,185,129,0.6)";
     }
 
+    // Kolory i style (Tailwind)
+    const indicatorColor = isOpen ? "bg-emerald-500" : "bg-rose-500";
+    const indicatorShadow = isOpen ? "rgba(16,185,129,0.6)" : "rgba(244,63,94,0.6)";
     const bgClass = isOpen ? "bg-emerald-50/80" : "bg-rose-50/80";
     const borderClass = isOpen ? "border-emerald-200/50" : "border-rose-200/50";
 
@@ -55,15 +68,20 @@ function updateStatus() {
         const indicator = badge.querySelector('.status-indicator');
         const text = badge.querySelector('.status-text');
         const time = badge.querySelector('.status-time');
-        indicator.className = `status-indicator w-2.5 h-2.5 rounded-full ${indicatorColor}`;
-        indicator.style.boxShadow = `0 0 8px ${indicatorShadow}`;
-        text.textContent = statusText;
-        time.textContent = statusTime;
+        
+        if (indicator) {
+            indicator.className = `status-indicator w-2.5 h-2.5 rounded-full ${indicatorColor}`;
+            indicator.style.boxShadow = `0 0 8px ${indicatorShadow}`;
+        }
+        if (text) text.textContent = statusText;
+        if (time) time.textContent = statusTime;
 
         badge.classList.remove('bg-white/40', 'bg-white', 'bg-emerald-50/80', 'bg-rose-50/80', 'border-white/50', 'border-emerald-100', 'border-emerald-200/50', 'border-rose-200/50');
         badge.classList.add(bgClass, borderClass);
     });
 }
 
+// Uruchomienie i interwał (co minutę)
 updateStatus();
 setInterval(updateStatus, 60000);
+

@@ -1,609 +1,651 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instrukcja Obsługi Strony - Zdrowe Stopy</title>
+    <title>Instrukcja Obsługi i Dokumentacja - Zdrowe Stopy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
         :root {
-            --brand-primary: #065f46;
-            --brand-dark: #064e3b;
-            --brand-light: #f0fdf4;
-            --brand-accent: #10b981;
-            
-            --bg-main: #fcfcfd;
-            --bg-card: #ffffff;
-            --border-subtle: #eff1f5;
-            --border-main: #e2e8f0;
-            
-            --text-strong: #0f172a;
-            --text-medium: #475569;
-            --text-subtle: #94a3b8;
-            
-            --radius-xl: 1.5rem;
-            --radius-lg: 1rem;
-            --radius-md: 0.625rem;
-            
-            --shadow-subtle: 0 1px 3px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.04);
-            --shadow-card: 0 10px 15px -3px rgba(0,0,0,0.03), 0 4px 6px -4px rgba(0,0,0,0.03);
+            --primary: #065f46;
+            --primary-dark: #064e3b;
+            --primary-light: #ecfdf5;
+            --accent: #10b981;
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --text-main: #334155;
+            --text-bold: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --sidebar-w: 280px;
+            --radius: 12px;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            scroll-behavior: smooth;
+            box-sizing: border-box;
         }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-medium);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Outfit', sans-serif;
-            color: var(--text-strong);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-
-        /* Layout */
-        .app-container {
-            max-width: 1240px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            min-height: 100vh;
-        }
-
-        @media (max-width: 1024px) {
-            .app-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Sidebar Navigation */
-        .sidebar {
-            background-color: var(--bg-card);
-            border-right: 1px solid var(--border-subtle);
-            padding: 3rem 2rem;
-            position: sticky;
-            top: 0;
+        /* Sidebar */
+        aside {
+            width: var(--sidebar-w);
             height: 100vh;
+            background: var(--card);
+            border-right: 1px solid var(--border);
+            position: fixed;
+            padding: 2rem 1.5rem;
             display: flex;
             flex-direction: column;
-            gap: 2.5rem;
+            gap: 2rem;
+            z-index: 100;
         }
 
-        @media (max-width: 1024px) {
-            .sidebar {
-                position: relative;
-                height: auto;
-                padding: 2rem;
-                border-right: none;
-                border-bottom: 1px solid var(--border-subtle);
-            }
-        }
-
-        .logo-area {
+        .logo {
             display: flex;
             align-items: center;
             gap: 0.75rem;
-        }
-
-        .logo-icon {
-            width: 36px;
-            height: 36px;
-            background: var(--brand-primary);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
-
-        .logo-text {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 1.25rem;
-            color: var(--text-strong);
+            color: var(--primary);
         }
 
-        .toc-nav {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+        nav ul {
+            list-style: none;
         }
 
-        .toc-link {
+        nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        nav a {
             display: flex;
             align-items: center;
             gap: 0.75rem;
             padding: 0.75rem 1rem;
-            color: var(--text-medium);
             text-decoration: none;
-            font-size: 0.9375rem;
+            color: var(--text-muted);
             font-weight: 500;
-            border-radius: var(--radius-md);
-            transition: none; /* User requested no hovers */
+            border-radius: var(--radius);
+            transition: all 0.2s;
         }
 
-        .toc-link.active {
-            background-color: var(--brand-light);
-            color: var(--brand-primary);
+        nav a:hover {
+            background: var(--primary-light);
+            color: var(--primary);
         }
 
-        .toc-link .material-symbols-outlined {
-            font-size: 1.25rem;
-            opacity: 0.7;
+        nav a.active {
+            background: var(--primary);
+            color: white;
         }
 
         /* Main Content */
-        .content-area {
-            padding: 4rem 5rem;
-            max-width: 900px;
+        main {
+            margin-left: var(--sidebar-w);
+            flex: 1;
+            padding: 4rem 6rem;
+            max-width: 1200px;
         }
 
-        @media (max-width: 1024px) {
-            .content-area {
-                padding: 3rem 2rem;
-            }
-        }
-
-        .header-section {
+        section {
             margin-bottom: 5rem;
+            scroll-margin-top: 4rem;
         }
 
         .badge {
             display: inline-block;
-            background: var(--brand-light);
-            color: var(--brand-primary);
-            padding: 0.35rem 0.85rem;
-            border-radius: 2rem;
+            padding: 0.25rem 0.75rem;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 99px;
             font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 1.5rem;
-        }
-
-        .header-section h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-
-        .header-section p {
-            font-size: 1.25rem;
-            color: var(--text-medium);
-            max-width: 600px;
-        }
-
-        /* Content Blocks */
-        .section-block {
-            margin-bottom: 6rem;
-        }
-
-        .section-block h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .section-block h2::before {
-            content: "";
-            width: 4px;
-            height: 32px;
-            background: var(--brand-primary);
-            border-radius: 2px;
-        }
-
-        .section-text {
-            font-size: 1.0625rem;
-            margin-bottom: 2rem;
-            color: var(--text-medium);
-        }
-
-        /* Documentation Cards */
-        .info-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-main);
-            border-radius: var(--radius-lg);
-            padding: 2.5rem;
-            box-shadow: var(--shadow-subtle);
-            margin-bottom: 2rem;
-        }
-
-        .card-title {
-            font-weight: 700;
-            color: var(--text-strong);
             margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--text-bold);
+            margin-bottom: 1rem;
+            letter-spacing: -0.04em;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-bold);
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
             gap: 0.75rem;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 0.5rem;
         }
 
-        /* Path Component */
-        .path-display {
-            background: #f8fafc;
-            border: 1px solid var(--border-main);
-            padding: 1rem 1.25rem;
-            border-radius: var(--radius-md);
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-bold);
+            margin: 2.5rem 0 1rem;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            font-size: 1.1rem;
+        }
+
+        /* Components */
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+        }
+
+        .code-block {
+            background: #0f172a;
+            color: #f8fafc;
+            padding: 1.5rem;
+            border-radius: var(--radius);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.875rem;
-            color: var(--text-strong);
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+            font-size: 0.95rem;
+            position: relative;
             margin: 1.5rem 0;
+            overflow-x: auto;
+            border-left: 4px solid var(--accent);
         }
 
-        .path-display .material-symbols-outlined {
-            color: var(--text-subtle);
-            font-size: 1.25rem;
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #e2e8f0;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--primary-dark);
         }
 
-        /* Checklist */
-        .feature-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 640px) {
-            .feature-list {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .feature-item {
+        .alert {
+            padding: 1.5rem 2rem;
+            border-radius: var(--radius);
+            margin: 2rem 0;
             display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 0.9375rem;
-            color: var(--text-medium);
+            gap: 1.5rem;
+            align-items: flex-start;
         }
 
-        .feature-item .dot {
-            width: 6px;
-            height: 6px;
-            background: var(--brand-accent);
-            border-radius: 50%;
-        }
-
-        /* Callouts */
-        .callout {
-            padding: 1.75rem;
-            border-radius: var(--radius-lg);
-            margin: 2.5rem 0;
-            display: flex;
-            gap: 1.25rem;
-        }
-
-        .callout-warning {
-            background-color: #fffbeb;
-            border: 1px solid #fde68a;
-        }
-
-        .callout-info {
-            background-color: #eff6ff;
+        .alert-info {
+            background: #eff6ff;
             border: 1px solid #bfdbfe;
+            color: #1e40af;
         }
 
-        .callout-icon {
-            flex-shrink: 0;
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .alert-warning {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            color: #92400e;
         }
 
-        .callout-warning .callout-icon { background: #fef3c7; color: #92400e; }
-        .callout-info .callout-icon { background: #dbeafe; color: #1e40af; }
-
-        .callout-content h4 {
-            font-size: 1.0625rem;
-            margin-bottom: 0.35rem;
+        .alert-success {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
         }
 
-        .callout-content p {
-            font-size: 0.9375rem;
-            color: inherit;
-            opacity: 0.8;
-        }
-
-        /* Steps */
-        .step-group {
+        .steps {
             display: flex;
             flex-direction: column;
             gap: 3rem;
-            margin-top: 3rem;
-            position: relative;
+            margin-top: 2.5rem;
         }
 
-        .step-group::before {
-            content: "";
-            position: absolute;
-            left: 20px;
-            top: 40px;
-            bottom: 40px;
-            width: 1px;
-            background: var(--border-main);
-        }
-
-        .step-item {
+        .step {
             display: flex;
             gap: 2rem;
-            position: relative;
         }
 
         .step-number {
             width: 40px;
             height: 40px;
-            background: white;
-            border: 2px solid var(--border-main);
-            color: var(--text-strong);
+            background: var(--primary);
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 0.875rem;
+            font-weight: 800;
             flex-shrink: 0;
-            z-index: 1;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(6, 95, 70, 0.3);
         }
 
         .step-content h4 {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-bold);
             margin-bottom: 0.75rem;
         }
 
-        /* Footer */
-        .site-footer {
-            margin-top: 10rem;
-            padding-top: 3rem;
-            border-top: 1px solid var(--border-subtle);
-            text-align: left;
-            color: var(--text-subtle);
-            font-size: 0.875rem;
-        }
-
-        code {
-            font-family: 'JetBrains Mono', monospace;
-            background: #f1f5f9;
-            padding: 0.2rem 0.4rem;
-            border-radius: 4px;
-            font-size: 0.9em;
-            color: var(--brand-primary);
-        }
-
-        .code-snippet {
-            background: #0f172a;
-            color: #f8fafc;
-            padding: 1.5rem;
-            border-radius: var(--radius-md);
+        .file-tree {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.9rem;
-            margin: 1rem 0;
-            overflow-x: auto;
+            color: var(--text-muted);
+            background: #f1f5f9;
+            padding: 2rem;
+            border-radius: var(--radius);
+            line-height: 1.8;
+        }
+
+        .file-tree .dir {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 1.25rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: #f8fafc;
+            font-weight: 700;
+            color: var(--text-bold);
+        }
+
+        .icon-box {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            aside {
+                display: none;
+            }
+
+            main {
+                margin-left: 0;
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<div class="app-container">
-    
-    <!-- Left Navigation -->
-    <aside class="sidebar">
-        <div class="logo-area">
-            <div class="logo-icon">
-                <span class="material-symbols-outlined">auto_stories</span>
-            </div>
-            <div class="logo-text">Zdrowe Stopy</div>
+    <aside>
+        <div class="logo">
+            <span class="material-symbols-outlined">health_metrics</span>
+            Zdrowe Stopy
         </div>
-
-        <nav class="toc-nav">
-            <a href="#intro" class="toc-link active">
-                <span class="material-symbols-outlined">home</span>
-                Wprowadzenie
-            </a>
-            <a href="#galeria" class="toc-link">
-                <span class="material-symbols-outlined">image</span>
-                Galeria zdjęć
-            </a>
-            <a href="#godziny" class="toc-link">
-                <span class="material-symbols-outlined">schedule</span>
-                Godziny otwarcia
-            </a>
-            <a href="#kontakt" class="toc-link">
-                <span class="material-symbols-outlined">contact_support</span>
-                Dane kontaktowe
-            </a>
-            <a href="#publikacja" class="toc-link">
-                <span class="material-symbols-outlined">rocket_launch</span>
-                Publikacja strony
-            </a>
-            <a href="#struktura" class="toc-link">
-                <span class="material-symbols-outlined">folder_open</span>
-                Struktura plików
-            </a>
+        <nav>
+            <ul>
+                <li><a href="#intro" class="active"><span class="material-symbols-outlined">info</span> Wstęp</a></li>
+                <li><a href="#tech"><span class="material-symbols-outlined">layers</span> Technologie</a></li>
+                <li><a href="#dev"><span class="material-symbols-outlined">terminal</span> Środowisko pracy</a></li>
+                <li><a href="#hours"><span class="material-symbols-outlined">schedule</span> Godziny Otwarcia</a></li>
+                <li><a href="#content"><span class="material-symbols-outlined">edit_note</span> Edycja treści</a></li>
+                <li><a href="#zabiegi"><span class="material-symbols-outlined">medical_services</span> Cennik i
+                        Zabiegi</a></li>
+                <li><a href="#gallery"><span class="material-symbols-outlined">photo_library</span> Galeria zdjęć</a>
+                </li>
+                <li><a href="#deploy"><span class="material-symbols-outlined">rocket_launch</span> Publikacja
+                        (SEOHOST)</a></li>
+                <li><a href="#seo"><span class="material-symbols-outlined">query_stats</span> SEO i Google</a></li>
+            </ul>
         </nav>
-
-        <div style="margin-top: auto;">
-            <div style="font-size: 0.75rem; color: var(--text-subtle); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Status Systemu</div>
-            <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem; color: var(--text-medium);">
-                <div style="width: 8px; height: 8px; background: #10b981; border-radius: 50%;"></div>
-                Wersja 1.0.4 - Gotowa
-            </div>
+        <div
+            style="margin-top: auto; font-size: 0.75rem; color: var(--text-muted); padding: 1rem; background: var(--bg); border-radius: 8px;">
+            <strong>Wersja:</strong> 2.2 (Premium)<br>
+            <strong>Aktualizacja:</strong> 15 maja 2026<br>
+            <strong>Hosting:</strong> SEOHOST.pl
         </div>
     </aside>
 
-    <!-- Main Content -->
-    <main class="content-area">
-        
-        <header id="intro" class="header-section">
-            <span class="badge">Dokumentacja Techniczna</span>
-            <h1>Przewodnik po zarządzaniu stroną</h1>
-            <p>Niniejsza instrukcja pomoże Ci w samodzielnej aktualizacji treści, zarządzaniu galerią oraz publikacji zmian na serwerze.</p>
-        </header>
+    <main>
+        <section id="intro">
+            <span class="badge">Pełna Dokumentacja Systemu</span>
+            <h1>Instrukcja Obsługi i Dokumentacja Techniczna</h1>
+            <p>Witaj w kompleksowym przewodniku po systemie strony internetowej <strong>Zdrowe Stopy Myślenice</strong>.
+                Dokumentacja została zaktualizowana o instrukcje dedykowane dla hostingu <strong>SEOHOST.pl</strong>
+                oraz szczegółowe opisy zarządzania zabiegami.</p>
 
-        <!-- Galeria -->
-        <section id="galeria" class="section-block">
-            <h2>Galeria zdjęć</h2>
-            <p class="section-text">
-                Strona posiada inteligentny mechanizm zarządzania obrazami. Nie musisz dopisywać żadnego kodu, aby nowe zdjęcia pojawiły się w galerii – wystarczy, że umieścisz pliki w odpowiednim folderze.
-            </p>
-
-            <div class="info-card">
-                <div class="card-title">
-                    <span class="material-symbols-outlined" style="color: var(--brand-primary);">folder</span>
-                    Folder docelowy
+            <div class="alert alert-info">
+                <span class="material-symbols-outlined" style="font-size: 2.5rem;">verified</span>
+                <div>
+                    <strong>Najwyższa Wydajność:</strong> Strona wykorzystuje silnik Astro 6.x. Jest to najszybsza
+                    dostępna obecnie technologia tworzenia stron, co przekłada się na błyskawiczne ładowanie u pacjentów
+                    i lepsze wyniki w Google (Core Web Vitals).
                 </div>
+            </div>
+        </section>
+
+        <section id="tech">
+            <h2><span class="material-symbols-outlined">layers</span> Architektura i Technologie</h2>
+            <p>W odróżnieniu od ciężkich systemów jak WordPress, ta strona jest <strong>statyczna</strong>. Oznacza to
+                brak bazy danych na serwerze, co eliminuje ryzyko włamań i gwarantuje stabilność.</p>
+
+            <div class="card">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+                    <div>
+                        <div class="icon-box"><span class="material-symbols-outlined">rocket</span></div>
+                        <h4>Astro 6.0</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Główny framework. Odpowiada za szybkość
+                            i nowoczesną strukturę plików.</p>
+                    </div>
+                    <div>
+                        <div class="icon-box"><span class="material-symbols-outlined">palette</span></div>
+                        <h4>Tailwind CSS</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">System wizualny. Gwarantuje spójność
+                            kolorów, czcionek i układu na telefonach.</p>
+                    </div>
+                    <div>
+                        <div class="icon-box"><span class="material-symbols-outlined">ads_click</span></div>
+                        <h4>ProAssist</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-muted);">Zintegrowany system rezerwacji wizyt
+                            online bezpośrednio na stronie.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="hours">
+            <h2><span class="material-symbols-outlined">schedule</span> Zmiana Godzin Otwarcia (3 Kroki)</h2>
+            <p>Aby godziny otwarcia były spójne w całym systemie, musisz zaktualizować je w trzech miejscach. Jest to kluczowe dla prawidłowego działania statusu "Otwarte/Zamknięte", wyświetlania tekstu na stronie oraz widoczności w Google.</p>
+
+            <div class="steps">
+                <!-- KROK 1: SKRYPT -->
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Silnik Statusu (Automatyczne Otwarte/Zamknięte)</h4>
+                        <p>Ten plik odpowiada za inteligentny znacznik statusu w menu i na stronie głównej.</p>
+                        <div class="path-display">
+                            <span class="material-symbols-outlined">terminal</span>
+                            src/scripts/status.js
+                        </div>
+                        <p>Zmień godziny w obiekcie <code>SCHEDULE</code> na początku pliku:</p>
+                        <div class="code-block">
+const SCHEDULE = {
+    1: { open: "08:30", close: "17:00" }, // Poniedziałek
+    ...
+    6: { open: "08:00", close: "13:00" }, // Sobota
+    0: null // Niedziela (zamknięte)
+};</div>
+                    </div>
+                </div>
+
+                <!-- KROK 2: KONTAKT -->
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Strona Kontakt (Widok dla Pacjenta)</h4>
+                        <p>Zmień tekst wyświetlany fizycznie w tabeli na podstronie Kontakt.</p>
+                        <div class="path-display">
+                            <span class="material-symbols-outlined">terminal</span>
+                            src/pages/kontakt.astro
+                        </div>
+                        <p>Znajdź sekcję <code>Godziny otwarcia</code> (ok. 40 linii) i popraw teksty wewnątrz znaczników <code>&lt;span&gt;</code>.</p>
+                    </div>
+                </div>
+
+                <!-- KROK 3: SCHEMA -->
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Dane Strukturalne (Google SEO)</h4>
+                        <p>To miejsce informuje roboty Google, jakie są godziny otwarcia gabinetu, aby mogły je wyświetlić w wynikach wyszukiwania.</p>
+                        <div class="path-display">
+                            <span class="material-symbols-outlined">terminal</span>
+                            src/layouts/BaseLayout.astro
+                        </div>
+                        <p>Znajdź blok <code>"openingHoursSpecification"</code> i zaktualizuj wartości <code>opens</code> oraz <code>closes</code>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <span class="material-symbols-outlined">check_circle</span>
+                <div>
+                    <strong>Wskazówka:</strong> Po zmianie we wszystkich 3 miejscach, wykonaj <code>npm run build</code> i wyślij pliki na serwer, aby zmiany stały się widoczne dla pacjentów i Google.
+                </div>
+            </div>
+        </section>
+
+        <section id="dev">
+            <h2><span class="material-symbols-outlined">terminal</span> Środowisko pracy (Lokalne)</h2>
+            <p>Aby edytować stronę na swoim komputerze, musisz mieć zainstalowane środowisko <strong>Node.js</strong>
+                (wersja 20+).</p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Instalacja bibliotek</h4>
+                        <p>Otwórz terminal w folderze projektu i wpisz:</p>
+                        <div class="code-block">npm install</div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Tryb deweloperski</h4>
+                        <p>Uruchom podgląd na żywo, który odświeża się po każdej Twojej zmianie:</p>
+                        <div class="code-block">npm run dev</div>
+                        <p>Strona otworzy się pod adresem: <code>http://localhost:4321</code></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="zabiegi">
+            <h2><span class="material-symbols-outlined">medical_services</span> Zarządzanie Zabiegami i Cenami</h2>
+            <p>Zabiegi są najbardziej rozbudowaną częścią strony. Ich edycja dzieli się na dwie części: widok listy
+                (ceny) oraz okno szczegółów (opisy i zdjęcia).</p>
+
+            <div class="card">
+                <h3>1. Edycja cen i krótkich opisów</h3>
+                <p>Aby zmienić cenę widoczną na kafelku lub krótki opis pod nazwą zabiegu:</p>
                 <div class="path-display">
                     <span class="material-symbols-outlined">terminal</span>
-                    src/assets/images/galeria/
+                    src/pages/zabiegi.astro
                 </div>
-                <ul class="feature-list">
-                    <li class="feature-item"><div class="dot"></div> Format .webp (zalecany)</li>
-                    <li class="feature-item"><div class="dot"></div> Max. 500 KB na zdjęcie</li>
-                    <li class="feature-item"><div class="dot"></div> Dowolna nazwa pliku</li>
-                    <li class="feature-item"><div class="dot"></div> Automatyczne skanowanie</li>
+                <p>Szukaj nazwy zabiegu w kodzie, a następnie edytuj tekst wewnątrz odpowiednich znaczników:</p>
+                <ul>
+                    <li>Cena: szukaj <code>od 180 PLN</code></li>
+                    <li>Krótki opis: szukaj <code>&lt;p class="font-body-md..."&gt;</code></li>
                 </ul>
+
+                <h3 style="margin-top: 2rem;">2. Edycja szczegółów w oknie (Modal)</h3>
+                <p>Jeśli pacjent kliknie w zabieg, otwiera się okno z długim opisem i zdjęciami. Te dane są w innym
+                    miejscu:</p>
+                <div class="path-display">
+                    <span class="material-symbols-outlined">terminal</span>
+                    src/scripts/treatments-modal.js
+                </div>
+                <p>W tym pliku znajdziesz obiekt <code>treatmentDetails</code>. Każdy zabieg ma tam przypisany:</p>
+                <ul>
+                    <li><code>description</code>: Długi opis (możesz używać tagów <code>&lt;p&gt;</code> dla akapitów).
+                    </li>
+                    <li><code>image</code>: Ścieżka do zdjęcia głównego.</li>
+                    <li><code>imageBefore / imageAfter</code>: Dla zabiegów pokazujących efekt "Przed / Po".</li>
+                </ul>
+
+                <h3 style="margin-top: 2rem;">3. Podmiana zdjęć zabiegów</h3>
+                <p>Wszystkie zdjęcia do zabiegów muszą trafić do folderu:</p>
+                <div class="path-display">
+                    <span class="material-symbols-outlined">folder</span>
+                    src/assets/images/zabiegi_zdjecia/
+                </div>
+                <p>Po wgraniu pliku, upewnij się, że nazwa w <code>treatments-modal.js</code> zgadza się z nazwą pliku
+                    (np. <code>moje-zdjecie.jpg</code>).</p>
             </div>
         </section>
 
-        <!-- Godziny -->
-        <section id="godziny" class="section-block">
-            <h2>Godziny otwarcia</h2>
-            <p class="section-text">
-                Informacje o godzinach otwarcia są przechowywane w dwóch miejscach: jedno służy do wyświetlenia tekstu na podstronie Kontakt, a drugie informuje wyszukiwarkę Google (Schema SEO).
-            </p>
+        <section id="content">
+            <h2><span class="material-symbols-outlined">edit_note</span> Zarządzanie pozostałą treścią</h2>
+            <div class="card">
+                <h3>Mapa edycji plików:</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Co chcesz zmienić?</th>
+                            <th>Plik do edycji</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Napisy na stronie głównej (Hero)</td>
+                            <td><code>src/pages/index.astro</code></td>
+                        </tr>
+                        <tr>
+                            <td>Numer telefonu, email (tekstowo)</td>
+                            <td><code>src/pages/kontakt.astro</code></td>
+                        </tr>
+                        <tr>
+                            <td>Treść podstrony "O mnie"</td>
+                            <td><code>src/pages/o-mnie.astro</code></td>
+                        </tr>
+                        <tr>
+                            <td>Logo lub linki w Menu</td>
+                            <td><code>src/components/Navbar.astro</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-            <div class="step-group">
-                <div class="step-item">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h4>Aktualizacja na stronie</h4>
-                        <p>Otwórz plik <code>src/pages/kontakt.astro</code> i odszukaj sekcję Godziny otwarcia (linia ok. 42). Zmień tekst widoczny dla pacjentów.</p>
-                    </div>
-                </div>
-                <div class="step-item">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h4>Aktualizacja dla Google (SEO)</h4>
-                        <p>To bardzo ważne dla pozycjonowania. Otwórz <code>src/layouts/BaseLayout.astro</code> i zaktualizuj wartości w sekcji <code>openingHoursSpecification</code>.</p>
-                    </div>
-                </div>
+        <section id="gallery">
+            <h2><span class="material-symbols-outlined">photo_library</span> Zarządzanie Galerią Zdjęć</h2>
+            <p>Główna galeria (podstrona Galeria) jest w pełni automatyczna.</p>
+            <div class="card">
+                <ol style="margin-left: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+                    <li>Wgraj zdjęcia do: <code>src/assets/images/galeria/</code></li>
+                    <li>Zalecany format: <strong>.webp</strong>, waga: poniżej 500KB.</li>
+                    <li>Uruchom <code>npm run build</code> – system sam doda zdjęcia do podglądu.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="deploy">
+            <h2><span class="material-symbols-outlined">rocket_launch</span> Publikacja na SEOHOST.pl</h2>
+            <p>Ponieważ korzystasz z hostingu <strong>SEOHOST</strong>, proces publikacji odbywa się przez panel
+                DirectAdmin lub konto FTP.</p>
+
+            <div class="card">
+                <h3>Krok 1: Budowanie projektu</h3>
+                <p>Zawsze przed wysłaniem na serwer wykonaj na komputerze:</p>
+                <div class="code-block">npm run build</div>
+                <p>Powstanie folder <strong>dist/</strong>. To jego zawartość wysyłamy.</p>
+
+                <h3 style="margin-top: 2rem;">Krok 2: Transfer na SEOHOST (FTP)</h3>
+                <ol style="margin-left: 1.5rem; margin-top: 1rem; display: flex; flex-direction: column; gap: 1rem;">
+                    <li>Użyj programu <strong>FileZilla</strong>.</li>
+                    <li>Dane do logowania (Host, Użytkownik, Hasło) znajdziesz w mailu od SEOHOST po zakupie hostingu.
+                    </li>
+                    <li>Połącz się i wejdź do folderu: <code>domains/TWOJA-DOMENA.pl/public_html/</code></li>
+                    <li>Wgraj całą zawartość folderu <code>dist/</code> (pliki takie jak index.html, folder _astro
+                        itd.).</li>
+                </ol>
             </div>
 
-            <div class="callout callout-info">
-                <div class="callout-icon">
+            <div class="alert alert-info">
+                <span class="material-symbols-outlined">info</span>
+                <div>
+                    <strong>Certyfikat SSL:</strong> W SEOHOST możesz darmowo włączyć SSL (ikona kłódki) w sekcji
+                    "Certyfikaty SSL" -> "Darmowy certyfikat od Let's Encrypt". Zrób to po wgraniu plików.
+                </div>
+            </div>
+        </section>
+
+        <section id="seo">
+            <h2><span class="material-symbols-outlined">query_stats</span> SEO i Dane Strukturalne (Google)</h2>
+            <div class="card">
+                <p>Strona jest zoptymalizowana pod kątem wyszukiwarek. Kluczowe dane (nazwa, adres, telefon) znajdują się w pliku:</p>
+                <div class="path-display">
+                    <span class="material-symbols-outlined">terminal</span>
+                    src/layouts/BaseLayout.astro
+                </div>
+                <p>W tym pliku znajdziesz również konfigurację <strong>Meta Tags</strong> (tytuły i opisy stron), które decydują o tym, jak strona wygląda w Google i na Facebooku.</p>
+                <div class="alert alert-info" style="margin-top: 1rem;">
                     <span class="material-symbols-outlined">info</span>
-                </div>
-                <div class="callout-content">
-                    <h4>Dlaczego dwa miejsca?</h4>
-                    <p>Google wymaga specjalnego formatu danych (JSON-LD), aby wyświetlać godziny bezpośrednio w wynikach wyszukiwania, podczas gdy strona Kontakt wymaga formatu czytelnego dla człowieka.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Kontakt -->
-        <section id="kontakt" class="section-block">
-            <h2>Dane kontaktowe</h2>
-            <p class="section-text">Wszystkie dane teleadresowe są zgrupowane w jednym pliku, co ułatwia ich szybką edycję.</p>
-            
-            <div class="info-card">
-                <div class="card-title">
-                    <span class="material-symbols-outlined" style="color: var(--brand-primary);">edit_document</span>
-                    Plik do edycji: src/pages/kontakt.astro
-                </div>
-                <div class="feature-list" style="grid-template-columns: 1fr;">
-                    <li class="feature-item"><div class="dot" style="background: var(--text-subtle);"></div> <strong>Telefon:</strong> Szukaj numeru w linii ok. 27</li>
-                    <li class="feature-item"><div class="dot" style="background: var(--text-subtle);"></div> <strong>Adres:</strong> Szukaj tekstu w linii ok. 22</li>
-                    <li class="feature-item"><div class="dot" style="background: var(--text-subtle);"></div> <strong>Email:</strong> Szukaj adresu w linii ok. 32</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Publikacja -->
-        <section id="publikacja" class="section-block">
-            <h2>Publikacja strony</h2>
-            <p class="section-text">Strona korzysta z generatora Astro. Aby zmiany były widoczne w sieci, należy wygenerować gotowe pliki i wgrać je na serwer.</p>
-
-            <div class="step-group">
-                <div class="step-item">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h4>Podgląd zmian</h4>
-                        <p>Uruchom lokalny serwer, aby sprawdzić jak wyglądają zmiany przed publikacją:</p>
-                        <div class="code-snippet">npm run dev</div>
-                    </div>
-                </div>
-                <div class="step-item">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h4>Budowanie projektu</h4>
-                        <p>Wygeneruj gotowe pliki do wysłania na serwer:</p>
-                        <div class="code-snippet">npm run build</div>
+                    <div>
+                        Instrukcję aktualizacji godzin dla Google znajdziesz w sekcji <a href="#hours" style="color: inherit; font-weight: 700;">Silnik Godzin (Krok 3)</a>.
                     </div>
                 </div>
             </div>
-
-            <div class="callout callout-warning">
-                <div class="callout-icon">
-                    <span class="material-symbols-outlined">warning</span>
-                </div>
-                <div class="callout-content">
-                    <h4>Gdzie są pliki do wysłania?</h4>
-                    <p>Po wykonaniu komendy <code>npm run build</code>, w głównym folderze powstanie folder <strong>dist/</strong>. To jego zawartość (a nie cały projekt) należy skopiować na serwer FTP.</p>
-                </div>
-            </div>
         </section>
 
-        <!-- Struktura -->
-        <section id="struktura" class="section-block">
-            <h2>Struktura plików</h2>
-            <p class="section-text">Najważniejsze foldery, o których warto wiedzieć:</p>
-            
-            <div class="feature-list" style="grid-template-columns: 1fr; gap: 1.5rem;">
-                <div style="display: flex; gap: 1rem; align-items: start;">
-                    <code style="white-space: nowrap;">src/pages/</code>
-                    <p style="font-size: 0.875rem;">Główne podstrony serwisu. Edytuj je, aby zmienić treści na stronie.</p>
-                </div>
-                <div style="display: flex; gap: 1rem; align-items: start;">
-                    <code style="white-space: nowrap;">src/components/</code>
-                    <p style="font-size: 0.875rem;">Elementy powtarzalne, takie jak Menu, Stopka czy przyciski.</p>
-                </div>
-                <div style="display: flex; gap: 1rem; align-items: start;">
-                    <code style="white-space: nowrap;">src/assets/</code>
-                    <p style="font-size: 0.875rem;">Zdjęcia, ikony oraz style CSS używane w projekcie.</p>
-                </div>
-                <div style="display: flex; gap: 1rem; align-items: start;">
-                    <code style="white-space: nowrap;">public/</code>
-                    <p style="font-size: 0.875rem;">Pliki statyczne, które nie są przetwarzane (np. favicon, ikony aplikacji).</p>
-                </div>
-            </div>
-        </section>
-
-        <footer class="site-footer">
-            <p>Dokumentacja Zdrowe Stopy. Opracowano w oparciu o standardy Astro 2024.</p>
+        <footer
+            style="margin-top: 5rem; padding-top: 3rem; border-top: 1px solid var(--border); color: var(--text-muted); text-align: center;">
+            <p>© 2026 Zdrowe Stopy Myślenice. System zbudowany z pasją do jakości.</p>
+            <p style="font-size: 0.8rem; margin-top: 0.5rem;">Dokumentacja Techniczna została stworzona przez AI</p>
         </footer>
-
     </main>
-</div>
 
+    <script>
+        // Smooth scrolling active state
+        const links = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            links.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
