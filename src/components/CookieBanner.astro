@@ -1,0 +1,109 @@
+---
+---
+
+<div
+  id="cookie-banner"
+  class="fixed bottom-6 left-6 right-6 md:left-auto md:max-w-md bg-white border border-emerald-100 rounded-xl p-6 shadow-2xl z-50 transform translate-y-20 opacity-0 transition-all duration-500 ease-out pointer-events-none"
+  aria-live="polite"
+>
+  <div class="flex flex-col gap-4">
+    <div class="flex items-start gap-3">
+      <div class="p-2 bg-emerald-50 rounded-lg text-emerald-800 shrink-0">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
+        </svg>
+      </div>
+      <div>
+        <h3 class="text-sm font-bold text-on-surface mb-1">Ciasteczka i analityka</h3>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Używamy narzędzia Google Analytics, aby anonimowo analizować ruch na naszej stronie. Pomaga nam to ulepszać nasze usługi. Możesz wyrazić zgodę na te pliki lub je odrzucić. Szczegóły znajdziesz w naszej <a href="/polityka" class="underline text-emerald-800 hover:text-emerald-600 font-semibold transition-colors">Polityce Prywatności</a>.
+        </p>
+      </div>
+    </div>
+    
+    <div class="flex items-center justify-end gap-3 pt-2">
+      <button
+        id="cookie-reject"
+        class="px-4 py-2 text-xs font-bold text-slate-500 hover:text-slate-800 transition-colors rounded-lg border border-slate-200 hover:border-slate-300"
+      >
+        Odrzuć
+      </button>
+      <button
+        id="cookie-accept"
+        class="px-4 py-2 text-xs font-bold text-white bg-primary hover:bg-primary-container transition-all duration-200 rounded-lg shadow-sm"
+      >
+        Akceptuję
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // --- KONFIGURACJA GOOGLE ANALYTICS ---
+  // Wpisz tutaj swój identyfikator Google Analytics (np. 'G-XXXXXXXXXX')
+  const GA_TRACKING_ID = 'G-XXXXXXXXXX';
+
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const rejectBtn = document.getElementById('cookie-reject');
+
+  function loadGoogleAnalytics() {
+    if (GA_TRACKING_ID === 'G-XXXXXXXXXX') {
+      console.warn('Google Analytics: Podaj właściwy identyfikator w pliku CookieBanner.astro');
+      return;
+    }
+
+    // Dodanie pierwszego skryptu async
+    const script1 = document.createElement('script');
+    script1.async = true;
+    script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
+    document.head.appendChild(script1);
+
+    // Dodanie drugiego skryptu inicjalizującego
+    const script2 = document.createElement('script');
+    script2.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${GA_TRACKING_ID}');
+    `;
+    document.head.appendChild(script2);
+  }
+
+  function checkConsent() {
+    const consent = localStorage.getItem('cookie-consent');
+    
+    if (consent === 'accepted') {
+      loadGoogleAnalytics();
+    } else if (consent === null) {
+      // Jeśli użytkownik jeszcze nie podjął decyzji, pokazujemy baner po krótkim opóźnieniu
+      setTimeout(() => {
+        if (banner) {
+          banner.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+          banner.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+        }
+      }, 1500);
+    }
+  }
+
+  function hideBanner() {
+    if (banner) {
+      banner.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+      banner.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+    }
+  }
+
+  acceptBtn?.addEventListener('click', () => {
+    localStorage.setItem('cookie-consent', 'accepted');
+    loadGoogleAnalytics();
+    hideBanner();
+  });
+
+  rejectBtn?.addEventListener('click', () => {
+    localStorage.setItem('cookie-consent', 'rejected');
+    hideBanner();
+  });
+
+  // Uruchomienie sprawdzania zgody po załadowaniu strony
+  document.addEventListener('DOMContentLoaded', checkConsent);
+</script>

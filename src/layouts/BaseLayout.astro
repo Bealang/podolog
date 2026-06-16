@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar.astro';
 import MobileMenu from '../components/MobileMenu.astro';
 import Footer from '../components/Footer.astro';
 import StickyReserveButton from '../components/StickyReserveButton.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 import '../index.css';
 
 interface Props {
@@ -117,6 +118,8 @@ const socialImageURL = new URL(ogImage, Astro.site);
   <slot />
 
   <Footer />
+
+  <CookieBanner />
 
   <script>
     document.querySelectorAll('.current-year').forEach(el => el.textContent = new Date().getFullYear().toString());

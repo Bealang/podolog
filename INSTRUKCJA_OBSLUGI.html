@@ -39,68 +39,76 @@
             background-color: var(--bg);
             color: var(--text-main);
             line-height: 1.6;
-            display: flex;
-        }
-
-        /* Sidebar */
-        aside {
-            width: var(--sidebar-w);
-            height: 100vh;
-            background: var(--card);
-            border-right: 1px solid var(--border);
-            position: fixed;
-            padding: 2rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            z-index: 100;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-weight: 800;
-            font-size: 1.25rem;
-            color: var(--primary);
-        }
-
-        nav ul {
-            list-style: none;
-        }
-
-        nav li {
-            margin-bottom: 0.5rem;
-        }
-
-        nav a {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem 1rem;
-            text-decoration: none;
-            color: var(--text-muted);
-            font-weight: 500;
-            border-radius: var(--radius);
-            transition: all 0.2s;
-        }
-
-        nav a:hover {
-            background: var(--primary-light);
-            color: var(--primary);
-        }
-
-        nav a.active {
-            background: var(--primary);
-            color: white;
         }
 
         /* Main Content */
         main {
-            margin-left: var(--sidebar-w);
-            flex: 1;
-            padding: 4rem 6rem;
-            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 6rem;
+            max-width: 1000px;
+            background: white;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            border-radius: 4px;
+            position: relative;
+        }
+
+        @media print {
+            body { background: white; }
+            main { 
+                margin: 0; 
+                padding: 0; 
+                box-shadow: none; 
+                max-width: none;
+            }
+            .toc-container { break-after: page; }
+            section { break-inside: avoid; margin-bottom: 3rem; }
+        }
+
+        /* Table of Contents */
+        .toc-container {
+            background: #fdfdfd;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--primary);
+            border-radius: var(--radius);
+            padding: 3rem;
+            margin: 3rem 0 5rem;
+        }
+
+        .toc-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-bold);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .toc-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .toc-item:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .toc-item span {
+            font-size: 1.2rem;
         }
 
         section {
@@ -129,15 +137,15 @@
         }
 
         h2 {
-            font-size: 2rem;
-            font-weight: 700;
+            font-size: 2.2rem;
+            font-weight: 800;
             color: var(--text-bold);
-            margin-bottom: 1.5rem;
+            margin: 6rem 0 2rem;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            border-bottom: 2px solid var(--primary-light);
-            padding-bottom: 0.5rem;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
         }
 
         h3 {
@@ -295,13 +303,8 @@
         }
 
         @media (max-width: 1024px) {
-            aside {
-                display: none;
-            }
-
             main {
-                margin-left: 0;
-                padding: 2rem;
+                padding: 2rem 1.5rem;
             }
 
             h1 {
@@ -311,44 +314,43 @@
     </style>
 </head>
 
-<body>
-
-    <aside>
-        <div class="logo">
-            <span class="material-symbols-outlined">health_metrics</span>
-            Zdrowe Stopy
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#intro" class="active"><span class="material-symbols-outlined">info</span> Wstęp</a></li>
-                <li><a href="#tech"><span class="material-symbols-outlined">layers</span> Technologie</a></li>
-                <li><a href="#dev"><span class="material-symbols-outlined">terminal</span> Środowisko pracy</a></li>
-                <li><a href="#hours"><span class="material-symbols-outlined">schedule</span> Godziny Otwarcia</a></li>
-                <li><a href="#content"><span class="material-symbols-outlined">edit_note</span> Edycja treści</a></li>
-                <li><a href="#zabiegi"><span class="material-symbols-outlined">medical_services</span> Cennik i
-                        Zabiegi</a></li>
-                <li><a href="#gallery"><span class="material-symbols-outlined">photo_library</span> Galeria zdjęć</a>
-                </li>
-                <li><a href="#deploy"><span class="material-symbols-outlined">rocket_launch</span> Publikacja
-                        (SEOHOST)</a></li>
-                <li><a href="#seo"><span class="material-symbols-outlined">query_stats</span> SEO i Google</a></li>
-            </ul>
-        </nav>
-        <div
-            style="margin-top: auto; font-size: 0.75rem; color: var(--text-muted); padding: 1rem; background: var(--bg); border-radius: 8px;">
-            <strong>Wersja:</strong> 2.2 (Premium)<br>
-            <strong>Aktualizacja:</strong> 15 maja 2026<br>
-            <strong>Hosting:</strong> SEOHOST.pl
-        </div>
-    </aside>
-
     <main>
         <section id="intro">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
+                <div class="logo">
+                    <span class="material-symbols-outlined" style="font-size: 2rem; color: var(--primary);">health_metrics</span>
+                    <span style="font-weight: 800; font-size: 1.5rem; color: var(--primary);">Zdrowe Stopy</span>
+                </div>
+                <div style="flex: 1; height: 1px; background: var(--border);"></div>
+                <div style="font-size: 0.8rem; color: var(--text-muted); text-align: right;">
+                    <strong>Wersja:</strong> 2.2 | <strong>15.05.2026</strong>
+                </div>
+            </div>
             <span class="badge">Pełna Dokumentacja Systemu</span>
             <h1>Instrukcja Obsługi i Dokumentacja Techniczna</h1>
             <p>Witaj w kompleksowym przewodniku po systemie strony internetowej <strong>Zdrowe Stopy Myślenice</strong>.
                 Dokumentacja została zaktualizowana o instrukcje dedykowane dla hostingu <strong>SEOHOST.pl</strong>
                 oraz szczegółowe opisy zarządzania zabiegami.</p>
+
+            <div class="toc-container">
+                <div class="toc-title">
+                    <span class="material-symbols-outlined">menu_book</span>
+                    Spis treści
+                </div>
+                <div class="toc-grid">
+                    <a href="#tech" class="toc-item"><span class="material-symbols-outlined">layers</span> 1. Architektura i technologie</a>
+                    <a href="#dev" class="toc-item"><span class="material-symbols-outlined">terminal</span> 2. Środowisko pracy</a>
+                    <a href="#hours" class="toc-item"><span class="material-symbols-outlined">schedule</span> 3. Godziny Otwarcia</a>
+                    <a href="#zabiegi" class="toc-item"><span class="material-symbols-outlined">medical_services</span> 4. Cennik i Zabiegi</a>
+                    <a href="#gallery" class="toc-item"><span class="material-symbols-outlined">photo_library</span> 5. Galeria Zdjęć</a>
+                    <a href="#content" class="toc-item"><span class="material-symbols-outlined">edit_note</span> 6. Edycja treści</a>
+                    <a href="#deploy" class="toc-item"><span class="material-symbols-outlined">rocket_launch</span> 7. Publikacja (SEOHOST)</a>
+                    <a href="#seo" class="toc-item"><span class="material-symbols-outlined">query_stats</span> 8. SEO i Dane Google</a>
+                    <a href="#external" class="toc-item"><span class="material-symbols-outlined">link</span> 9. Systemy Zewnętrzne</a>
+                    <a href="#branding" class="toc-item"><span class="material-symbols-outlined">branding_watermark</span> 10. Branding (Logo)</a>
+                    <a href="#maintenance" class="toc-item"><span class="material-symbols-outlined">build</span> 11. Konserwacja i FAQ</a>
+                </div>
+            </div>
 
             <div class="alert alert-info">
                 <span class="material-symbols-outlined" style="font-size: 2.5rem;">verified</span>
@@ -599,18 +601,81 @@ const SCHEDULE = {
         </section>
 
         <section id="seo">
-            <h2><span class="material-symbols-outlined">query_stats</span> SEO i Dane Strukturalne (Google)</h2>
+            <h2><span class="material-symbols-outlined">query_stats</span> 8. SEO i Dane Google</h2>
             <div class="card">
-                <p>Strona jest zoptymalizowana pod kątem wyszukiwarek. Kluczowe dane (nazwa, adres, telefon) znajdują się w pliku:</p>
+                <p>Strona jest zoptymalizowana pod kątem wyszukiwarek. Kluczowe dane (nazwa, adres, telefon) oraz <strong>Meta Tags</strong> znajdują się w pliku:</p>
                 <div class="path-display">
                     <span class="material-symbols-outlined">terminal</span>
                     src/layouts/BaseLayout.astro
                 </div>
-                <p>W tym pliku znajdziesz również konfigurację <strong>Meta Tags</strong> (tytuły i opisy stron), które decydują o tym, jak strona wygląda w Google i na Facebooku.</p>
+                <p>W tym pliku znajdziesz:</p>
+                <ul>
+                    <li><code>description</code>: Opis strony widoczny w Google.</li>
+                    <li><code>og:image</code>: Zdjęcie, które pojawia się przy udostępnianiu linku na Facebooku.</li>
+                    <li><code>openingHoursSpecification</code>: Godziny otwarcia dla robotów Google.</li>
+                </ul>
                 <div class="alert alert-info" style="margin-top: 1rem;">
                     <span class="material-symbols-outlined">info</span>
                     <div>
-                        Instrukcję aktualizacji godzin dla Google znajdziesz w sekcji <a href="#hours" style="color: inherit; font-weight: 700;">Silnik Godzin (Krok 3)</a>.
+                        Pamiętaj, aby opis (description) zawierał słowa kluczowe takie jak "podolog Myślenice" czy "wrastające paznokcie".
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="external">
+            <h2><span class="material-symbols-outlined">link</span> 9. Systemy Zewnętrzne (ProAssist i Social Media)</h2>
+            <div class="card">
+                <h3>Integracja ProAssist</h3>
+                <p>Jeśli zmienisz konto w systemie rezerwacji lub będziesz potrzebował podpiąć nowy identyfikator specjalisty, edytuj plik:</p>
+                <div class="path-display">
+                    <span class="material-symbols-outlined">terminal</span>
+                    src/layouts/BaseLayout.astro
+                </div>
+                <p>Znajdź linię ok. 129 z adresem skryptu (np. <code>.../ps-u285-1f8iyq</code>) i podmień ją na nową otrzymaną od ProAssist.</p>
+
+                <h3 style="margin-top: 2rem;">Link do Facebooka</h3>
+                <p>Link do Twojego profilu na Facebooku, który znajduje się w górnym menu (ikona), edytuje się w pliku:</p>
+                <div class="path-display">
+                    <span class="material-symbols-outlined">terminal</span>
+                    src/components/Navbar.astro
+                </div>
+                <p>Szukaj adresu <code>https://www.facebook.com/...</code> w okolicach 88 linii kodu.</p>
+            </div>
+        </section>
+
+        <section id="branding">
+            <h2><span class="material-symbols-outlined">branding_watermark</span> 10. Branding i Logotyp</h2>
+            <div class="card">
+                <h3>Zmiana Logo</h3>
+                <p>Główny plik logo jest używany zarówno w nagłówku, stopce, jak i jako ikonka strony (favicon). Znajduje się on w dwóch miejscach (dla edycji i dla gotowej strony):</p>
+                <ul>
+                    <li>Źródło: <code>src/assets/images/logo_zdrowestopy.png</code></li>
+                    <li>Plik publiczny: <code>public/images/logo_zdrowestopy.png</code></li>
+                </ul>
+                <p>Aby zmienić logo, podmień oba pliki na nowe o <strong>dokładnie tej samej nazwie</strong>. Zalecany format to przezroczysty PNG.</p>
+            </div>
+        </section>
+
+        <section id="maintenance">
+            <h2><span class="material-symbols-outlined">build</span> 11. Konserwacja, FAQ i Analityka</h2>
+            <div class="card">
+                <h3>Statystyki (Google Analytics)</h3>
+                <p>Aby mierzyć ruch na stronie, wklej kod śledzący otrzymany od Google w pliku <code>src/layouts/BaseLayout.astro</code> tuż przed zamknięciem znacznika <code>&lt;/head&gt;</code>.</p>
+
+                <h3 style="margin-top: 2rem;">Rozwiązywanie problemów (FAQ)</h3>
+                <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
+                    <div>
+                        <strong>Q: Zmieniłem coś w pliku, ale na stronie nic się nie zmieniło.</strong><br>
+                        A: Upewnij się, że po zmianie uruchomiłeś <code>npm run build</code> i wgrałeś całą zawartość folderu <code>dist/</code> na serwer FTP.
+                    </div>
+                    <div>
+                        <strong>Q: Zdjęcia ładują się bardzo wolno.</strong><br>
+                        A: Zdjęcia powinny mieć format <strong>.webp</strong> i wagę nie przekraczającą 300-500 KB. Użyj darmowych narzędzi online do kompresji zdjęć przed ich wgraniem.
+                    </div>
+                    <div>
+                        <strong>Q: Czy muszę robić kopię zapasową?</strong><br>
+                        A: Tak. Zaleca się raz na miesiąc skopiować cały folder z projektem (ten, w którym jest ta instrukcja) na zewnętrzny dysk lub do chmury.
                     </div>
                 </div>
             </div>
@@ -624,27 +689,8 @@ const SCHEDULE = {
     </main>
 
     <script>
-        // Smooth scrolling active state
-        const links = document.querySelectorAll('nav a');
-        const sections = document.querySelectorAll('section');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (window.pageYOffset >= sectionTop - 150) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            links.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        });
+        // Auto-update years if any
+        document.querySelectorAll('.current-year').forEach(el => el.textContent = new Date().getFullYear().toString());
     </script>
 </body>
 
